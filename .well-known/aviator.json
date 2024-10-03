@@ -1,0 +1,7 @@
+{
+    "servers" :{
+        "dev": "https://localhost:5001",
+        "prod": "https://api.pyxisint.com"
+    },
+    "logo": "https://pyxisint.github.io/pyxisint.png"
+}
