@@ -1,0 +1,8 @@
+{
+    "servers" :{
+        "dev": "https://localhost:7221",
+        "prod": "https://aviate-api.prabalghosh.us"
+    },
+    "logo": "https://pyxisint.github.io/pyxisint.png",
+    "syncfusion": "Ngo9BigBOggjHTQxAR8/V1JFaF5cXGRCf1FpRmJGdld5fUVHYVZUTXxaS00DNHVRdkdmWH9fc3RcRWZcVUN/VkdWYEg="
+}
