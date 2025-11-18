@@ -2,263 +2,290 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Pyxis International - Software Development Company">
-    <title>Pyxis International</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" integrity="sha512-k6RqeWeci5ZR/Lv4MR0sA0FfDOMr5YI7ttm1l5QY42MGrm3E4H8ZB1Iqj6Q2J6dj49+67wZ6u7lVo0Q4qOHcYQ==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <style>
-        body {
-            font-family: 'Arial', sans-serif;
-            color: #333;
-            background: linear-gradient(to bottom, #f8f9fa, #e9ecef);
-        }
-
-        nav {
-            background-color: #343a40;
-        }
-
-        nav a {
-            color: #fff;
-        }
-
-        .hero {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('images/pyxisint-hero.png') no-repeat center center/cover;
-            color: white;
-            text-align: center;
-            padding: 100px 0;
-            transition: background 0.5s ease;
-        }
-
-        .hero:hover {
-            background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('images/pyxisint-hero.png') no-repeat center center/cover;
-        }
-
-        .section-heading {
-            text-align: center;
-            margin-bottom: 40px;
-        }
-
-        .services .card {
-            border: none;
-            background-color: #f8f9fa;
-            transition: transform 0.3s;
-        }
-
-        .services .card:hover {
-            transform: scale(1.05);
-        }
-
-        footer {
-            background-color: #343a40;
-            color: white;
-            padding: 40px 0;
-            text-align: center;
-        }
-
-        footer a {
-            color: #f8f9fa;
-        }
-
-        footer a:hover {
-            color: #ddd;
-        }
-
-        .btn-primary {
-            background-color: #007bff;
-            border: none;
-            transition: background-color 0.3s;
-        }
-
-        .btn-primary:hover {
-            background-color: #0056b3;
-        }
-    </style>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Pyxis International Consulting — Fractional CTO & High‑Value Engineering</title>
+    <meta name="description" content="High‑value consulting and fractional CTO services to architect, modernize, and deliver mission‑critical systems. Pyxis Aviate (Labs) explores future airline operations." />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://pyxisint.com/" />
+    <meta name="theme-color" content="#2563eb" />
+    <!-- Open Graph -->
+    <meta property="og:title" content="Pyxis International Consulting — Fractional CTO & High‑Value Engineering" />
+    <meta property="og:description" content="Hands‑on senior consulting to architect, modernize, and ship mission‑critical systems. Pyxis Aviate (Labs) for airline ops." />
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://pyxisint.com/" />
+    <meta property="og:site_name" content="Pyxis International Consulting" />
+    <meta property="og:image" content="https://pyxisint.com/images/og-image.svg" />
+    <meta property="og:image:alt" content="Pyxis International — Fractional CTO & High‑Value Engineering" />
+    <!-- PNG fallback for platforms that ignore SVG -->
+    <meta property="og:image" content="https://pyxisint.com/images/pyxisint-hero.png" />
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Pyxis International Consulting — Fractional CTO & High‑Value Engineering" />
+    <meta name="twitter:description" content="Senior consulting to align engineering with outcomes. Pyxis Aviate (Labs) in development." />
+    <meta name="twitter:image" content="https://pyxisint.com/images/pyxisint-hero.png" />
+    <meta name="twitter:image:alt" content="Pyxis International — Fractional CTO & High‑Value Engineering" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/master.css" />
+    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="images/pyxisint-hero.png" />
+    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#2563eb" />
+    <meta name="apple-mobile-web-app-title" content="Pyxis International" />
+                <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "Organization",
+                    "name": "Pyxis International Consulting",
+                    "url": "https://pyxisint.com/",
+                    "sameAs": [],
+                    "logo": "images/pyxisint-hero.png",
+                    "address": {
+                        "@type": "PostalAddress",
+                        "addressLocality": "New York Metropolitan Area",
+                        "addressRegion": "NY",
+                        "addressCountry": "US"
+                    },
+                    "contactPoint": [{
+                        "@type": "ContactPoint",
+                        "email": "info@pyxisint.com",
+                        "contactType": "sales"
+                    }]
+                }
+                </script>
+                <script type="application/ld+json">
+                {
+                    "@context": "https://schema.org",
+                    "@type": "SoftwareApplication",
+                    "name": "Pyxis Aviate",
+                    "applicationCategory": "BusinessApplication",
+                    "operatingSystem": "Web",
+                    "url": "https://pyxisint.com/",
+                    "offers": {
+                        "@type": "Offer",
+                        "availability": "https://schema.org/PreOrder",
+                        "price": "0",
+                        "priceCurrency": "USD"
+                    }
+                }
+                </script>
 </head>
 
 <body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
-            <a class="navbar-brand" href="#">Pyxis International</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
-                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="#services">Services</a>
-                    </li>                    <li class="nav-item">
-                        <a class="nav-link" href="#product">Products</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#about">About</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#contact">Contact</a>
-                    </li>
-                </ul>
-            </div>
+    <header class="site-nav">
+        <div class="container nav-wrap">
+            <a class="brand" href="#top" aria-label="Pyxis International">
+                <span class="brand-mark" aria-hidden="true">✦</span>
+                <span class="brand-text">Pyxis International</span>
+            </a>
+            <nav class="nav-links" aria-label="Primary navigation">
+                <a href="#advisory">Advisory</a>
+                <a href="#services">Services</a>
+                <a href="#engagements">Engagements</a>
+                <a href="#pyxis-aviate">Labs</a>
+                <a href="#about">About</a>
+                <a href="#contact">Contact</a>
+            </nav>
         </div>
-    </nav>    <!-- Hero Section -->
-    <section class="hero d-flex flex-column justify-content-center align-items-center">
-        <h1>Welcome to Pyxis International</h1>
-        <p>Expert software development and aviation solutions</p>
-        <a href="#product" class="btn btn-primary">Explore Our Products</a>
-    </section>
+    </header>
 
-    <!-- Services Section -->
-    <section id="services" class="py-5">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Our Services</h2>
-                <p>We provide a wide range of services to meet your software development needs</p>
-            </div>
-            <div class="row">
-                <div class="col-md-4">
-                    <div class="card text-center p-3">
-                        <div class="card-body">
-                            <i class="fas fa-laptop-code fa-3x mb-3"></i>
-                            <h5 class="card-title">Software Development</h5>
-                            <p class="card-text">We design, develop, and maintain custom software solutions that meet your business needs.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card text-center p-3">
-                        <div class="card-body">
-                            <i class="fas fa-comments fa-3x mb-3"></i>
-                            <h5 class="card-title">Consulting Services</h5>
-                            <p class="card-text">Our experts provide software development consultancy for project management and scaling.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="card text-center p-3">
-                        <div class="card-body">
-                            <i class="fas fa-cloud fa-3x mb-3"></i>
-                            <h5 class="card-title">Cloud Solutions</h5>
-                            <p class="card-text">We help businesses leverage cloud technology for greater efficiency and scalability.</p>
-                        </div>
-                    </div>
+    <main id="top">
+        <section class="hero">
+            <div class="hero-bg" role="img" aria-label="Aircraft wing and sky"></div>
+            <div class="container hero-inner">
+                <h1>High‑Value Engineering & Fractional CTO</h1>
+                <p>Hands‑on senior consulting to architect, modernize, and ship mission‑critical systems — with pragmatic leadership and measurable outcomes.</p>
+                <div class="hero-cta">
+                    <a class="btn btn-primary" href="#contact">Book a consultation</a>
+                    <a class="btn btn-ghost" href="#services">See services</a>
                 </div>
             </div>
-        </div>
-    </section>    <!-- Products Section -->
-    <section id="product" class="py-5 bg-light">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Our Products</h2>
-                <p>Innovative software solutions for aviation and industry</p>
-            </div>
-            
-            <!-- Pyxis Aviate -->
-            <div class="row align-items-center mb-5">
-                <div class="col-md-6">
-                    <div class="d-flex justify-content-center align-items-center bg-primary text-white rounded" style="height: 300px;">
-                        <div class="text-center">
-                            <i class="fas fa-plane fa-5x mb-3"></i>
-                            <h4>Pyxis Aviate</h4>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <h3>Pyxis Aviate</h3>
-                    <p>Comprehensive airline operations software designed to streamline flight operations, crew management, and operational efficiency. Pyxis Aviate provides airlines with the tools they need to manage complex operations while ensuring safety and compliance.</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Flight Operations Management</li>
-                        <li><i class="fas fa-check-circle"></i> Crew Scheduling and Tracking</li>
-                        <li><i class="fas fa-check-circle"></i> Aircraft Maintenance Planning</li>
-                        <li><i class="fas fa-check-circle"></i> Real-time Operations Monitoring</li>
-                        <li><i class="fas fa-check-circle"></i> Regulatory Compliance Management</li>
+        </section>
+
+        <section id="advisory" class="section section-accent">
+            <div class="container grid-two">
+                <div class="col">
+                    <span class="eyebrow">High‑Value Consulting</span>
+                    <h2 class="section-title">Fractional CTO & Advisory</h2>
+                    <p class="section-lead">Strategy to execution: architecture reviews, modernization roadmaps, and hands‑on leadership to unblock delivery and elevate engineering practice.</p>
+                    
+                    <ul class="feature-list">
+                        <li><span class="feature-mark" aria-hidden="true"></span> Executive‑level guidance aligned to business goals and risks.</li>
+                        <li><span class="feature-mark" aria-hidden="true"></span> Architecture and platform decisions with clear trade‑offs.</li>
+                        <li><span class="feature-mark" aria-hidden="true"></span> Modernization and de‑risking plans with staged outcomes.</li>
+                        <li><span class="feature-mark" aria-hidden="true"></span> Team mentoring, process tuning, and quality baselines.</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Learn More About Aviate</a>
-                </div>
-            </div>
-
-            <!-- Pyxis Balancia -->
-            <div class="row align-items-center">
-                <div class="col-md-6 order-md-2">
-                    <div class="d-flex justify-content-center align-items-center bg-success text-white rounded" style="height: 300px;">
-                        <div class="text-center">
-                            <i class="fas fa-balance-scale fa-5x mb-3"></i>
-                            <h4>Pyxis Balancia</h4>
-                        </div>
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="#contact">Discuss an engagement</a>
+                        <a class="btn btn-ghost" href="#services">View all services</a>
                     </div>
                 </div>
-                <div class="col-md-6 order-md-1">
-                    <h3>Pyxis Balancia</h3>
-                    <p>Advanced Weight & Balance (W&B) software solution that ensures accurate aircraft weight and balance calculations. Pyxis Balancia helps aviation professionals maintain safety standards while optimizing aircraft performance and fuel efficiency.</p>
-                    <ul>
-                        <li><i class="fas fa-check-circle"></i> Precise Weight & Balance Calculations</li>
-                        <li><i class="fas fa-check-circle"></i> Aircraft Configuration Management</li>
-                        <li><i class="fas fa-check-circle"></i> Load Planning Optimization</li>
-                        <li><i class="fas fa-check-circle"></i> Regulatory Compliance Reports</li>
-                        <li><i class="fas fa-check-circle"></i> Integration with Flight Planning Systems</li>
+                <div class="col panel">
+                    <div class="panel-header">Typical Engagements</div>
+                    <ul class="feature-list">
+                        <li><span class="feature-mark" aria-hidden="true"></span> 4–12 week architecture & codebase assessment</li>
+                        <li><span class="feature-mark" aria-hidden="true"></span> 1–3 days/week fractional CTO</li>
+                        <li><span class="feature-mark" aria-hidden="true"></span> Cloud migration & cost/perf tuning initiatives</li>
+                        <li><span class="feature-mark" aria-hidden="true"></span> Delivery rescue and remediation plans</li>
                     </ul>
-                    <a href="#contact" class="btn btn-primary">Learn More About Balancia</a>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- About Section -->
-    <section id="about" class="py-5">
-        <div class="container">
-            <div class="section-heading">
-                <h2>About Pyxis International</h2>
-                <p>Your trusted partner in software development</p>
-            </div>
-            <p>At Pyxis International, we are dedicated to providing innovative software solutions to help businesses thrive in a competitive environment. With years of experience in the industry, our team of experts is committed to delivering high-quality products and services to our clients. Whether you need custom software development or expert consultancy, we have the skills and knowledge to help you succeed.</p>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-5 bg-light">
-        <div class="container">
-            <div class="section-heading">
-                <h2>Contact Us</h2>
-                <p>We'd love to hear from you</p>
-            </div>
-            <div class="row">
-                <div class="col-md-6">
-                    <form>
-                        <div class="mb-3">
-                            <label for="name" class="form-label">Name</label>
-                            <input type="text" class="form-control" id="name" placeholder="Your Name">
-                        </div>
-                        <div class="mb-3">
-                            <label for="email" class="form-label">Email</label>
-                            <input type="email" class="form-control" id="email" placeholder="Your Email">
-                        </div>
-                        <div class="mb-3">
-                            <label for="message" class="form-label">Message</label>
-                            <textarea class="form-control" id="message" rows="4" placeholder="Your Message"></textarea>
-                        </div>
-                        <button type="submit" class="btn btn-primary">Send Message</button>
-                    </form>
-                </div>
-                <div class="col-md-6">
-                    <h5>Our Office</h5>
-                    <p>Brookfield, CT 06804, USA</p>
-                    <p>Email: info@pyxisint.com</p>
-                    <p>Phone: +1 (234) 567-8901</p>
+        <section id="engagements" class="section">
+            <div class="container">
+                <h2 class="section-title">Engagement Models</h2>
+                <p class="section-lead">Clear, outcome‑oriented ways to work together. Start focused, scale as needed.</p>
+                <div class="tiles">
+                    <article class="tile">
+                        <h3>Architecture Sprint</h3>
+                        <p>2–4 weeks to assess, decide, and set a clear path. Deliverables: architecture memo, risks, and 90‑day plan.</p>
+                        <div class="badges"><span class="badge">Fixed‑scope</span><span class="badge">Fast</span></div>
+                    </article>
+                    <article class="tile">
+                        <h3>Fractional CTO</h3>
+                        <p>Hands‑on leadership 1–3 days/week. Align roadmap, mentor team, and drive delivery with crisp priorities.</p>
+                        <div class="badges"><span class="badge">Retainer</span><span class="badge">Leadership</span></div>
+                    </article>
+                    <article class="tile">
+                        <h3>Delivery Rescue</h3>
+                        <p>Stabilize a slipping initiative. Diagnose bottlenecks and implement a pragmatic remediation and recovery plan.</p>
+                        <div class="badges"><span class="badge">Time‑boxed</span><span class="badge">Hands‑on</span></div>
+                    </article>
+                    <article class="tile">
+                        <h3>Cloud & Cost</h3>
+                        <p>Right‑size infrastructure, improve performance, and reduce cost without risking reliability.</p>
+                        <div class="badges"><span class="badge">Optimization</span><span class="badge">Cloud</span></div>
+                    </article>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2024 Pyxis International. All rights reserved.</p>
-            <a href="#">Privacy Policy</a> | <a href="#">Terms of Service</a>
+        <section id="services" class="section">
+            <div class="container">
+                <h2 class="section-title">Services</h2>
+                <p class="section-lead">Senior consulting designed to drive outcomes fast — clear architecture, focused delivery, and durable systems.</p>
+
+                <div class="cards">
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">🧭</div>
+                        <h3>Fractional CTO & Advisory</h3>
+                        <p>Executive‑level guidance, roadmaps, and pragmatic leadership to align engineering with business and ship confidently.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">💻</div>
+                        <h3>Custom Software Engineering</h3>
+                        <p>Full‑stack development in .NET, C#, C++, and cloud architectures. Design, modernize, and refactor mission‑critical systems.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">✈️</div>
+                        <h3>Aviation Technology & Operations</h3>
+                        <p>Dispatch, flight planning, MEL/MMEL automation, ARINC 424 parsing, and operational tooling for airline workflows.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">🧠</div>
+                        <h3>AI & Automation</h3>
+                        <p>AI‑assisted workflows, local LLM integration, OCR pipelines, and intelligent data processing to unlock efficiency.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">🔗</div>
+                        <h3>Systems Integration</h3>
+                        <p>Bridging legacy and modern platforms, API design, data transformation, and secure enterprise integration patterns.</p>
+                    </article>
+                    <article class="card">
+                        <div class="card-icon" aria-hidden="true">☁️</div>
+                        <h3>Database & Cloud Architecture</h3>
+                        <p>High‑availability design, SQL/NoSQL modeling, performance tuning, and scalable cloud migration strategies.</p>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <section id="pyxis-aviate" class="section section-muted">
+            <div class="container grid-two">
+                <div class="col">
+                    <span class="eyebrow">Labs</span>
+                    <h2 class="section-title">Pyxis Aviate</h2>
+                    <p class="section-lead">In development: a modern airline operations platform spanning dispatch, crew, fleet, and day‑of‑ops performance.</p>
+                    <p>We’re seeking a small group of design partners to shape early capabilities and integrations.</p>
+
+                    <ul class="feature-list">
+                        <li>
+                            <span class="feature-mark" aria-hidden="true">●</span>
+                            Flight Ops: real‑time situational awareness, flight watch, NOTAMs, weather overlays, and disruption management.
+                        </li>
+                        <li>
+                            <span class="feature-mark" aria-hidden="true">●</span>
+                            Crew & Duty: rostering, legality checks, qualifications, and compliance with configurable rules engines.
+                        </li>
+                        <li>
+                            <span class="feature-mark" aria-hidden="true">●</span>
+                            Fleet & Maintenance: aircraft status, MEL/CDL tracking, planned/unplanned maintenance visibility.
+                        </li>
+                        <li>
+                            <span class="feature-mark" aria-hidden="true">●</span>
+                            Data & Integrations: ARINC 424, AIDX, ACARS/AFDX gateways, and flexible API integrations.
+                        </li>
+                    </ul>
+
+                    <div class="cta-row">
+                        <a class="btn btn-primary" href="mailto:contact@pyxisint.com?subject=Pyxis%20Aviate%20Early%20Access">Join early access</a>
+                        <a class="btn btn-ghost" href="#services">See services</a>
+                    </div>
+                </div>
+                <div class="col panel">
+                    <div class="panel-header">Operational Snapshot</div>
+                    <div class="panel-metrics">
+                        <div class="metric">
+                            <div class="metric-value">99.95%</div>
+                            <div class="metric-label">Uptime Target</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value"><span aria-hidden="true">↘</span> 42%</div>
+                            <div class="metric-label">Delay Minutes</div>
+                        </div>
+                        <div class="metric">
+                            <div class="metric-value"><span aria-hidden="true">↗</span> 18%</div>
+                            <div class="metric-label">Crew Utilization</div>
+                        </div>
+                    </div>
+                    <p class="panel-note">Illustrative metrics for demonstration purposes.</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title">About</h2>
+                <p>Founded by a veteran software engineer with 30+ years across aviation, healthcare, finance, communications, and cloud‑native SaaS. We deliver elegant, stable, and high‑performance systems tailored to real‑world operations. From flight planning to enterprise workflows, we bring clarity, precision, and pragmatic engineering to every engagement.</p>
+            </div>
+        </section>
+
+        <section id="contact" class="section section-muted">
+            <div class="container">
+                <h2 class="section-title">Contact</h2>
+                <p class="section-lead">Interested in working together or seeing Pyxis Aviate in action?</p>
+                <div class="contact-grid">
+                    <div>
+                        <p><strong>Email:</strong> <a href="mailto:info@pyxisint.com">info@pyxisint.com</a></p>
+                        <p><strong>Location:</strong> New York Metropolitan Area, USA</p>
+                    </div>
+                    <div>
+                        <a class="btn btn-primary" href="mailto:info@pyxisint.com?subject=Pyxis%20Aviate%20Demo%20Request">Request a demo</a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container footer-wrap">
+            <p>© 2025 Pyxis International Consulting</p>
+            <a href="#top" class="back-to-top">Back to top ↑</a>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://kit.fontawesome.com/5bceb40e99.js" crossorigin="anonymous"></script></body>
+</body>
 
 </html>

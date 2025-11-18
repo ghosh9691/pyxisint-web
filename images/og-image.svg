@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b1220"/>
+      <stop offset="1" stop-color="#1e293b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#1d4ed8"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <style>
+      .title { font: 700 70px 'Inter', 'Segoe UI', Arial, sans-serif; fill: #ffffff }
+      .subtitle { font: 400 34px 'Inter', 'Segoe UI', Arial, sans-serif; fill: #cbd5e1 }
+      .eyebrow { font: 600 22px 'Inter', 'Segoe UI', Arial, sans-serif; fill: #93c5fd; letter-spacing: 4px; text-transform: uppercase }
+      .brand { font: 700 28px 'Inter', 'Segoe UI', Arial, sans-serif; fill: #e2e8f0 }
+    </style>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <g transform="translate(70,70)">
+    <rect x="0" y="0" width="110" height="110" rx="24" fill="url(#accent)"/>
+    <g transform="translate(0,0)">
+      <text x="140" y="55" class="brand">Pyxis International Consulting</text>
+    </g>
+  </g>
+  <g transform="translate(70,220)">
+    <text class="eyebrow" x="0" y="0">FRACTIONAL CTO • HIGH‑VALUE ENGINEERING</text>
+    <text class="title" x="0" y="90">Elegant Software. Operational Precision.</text>
+    <text class="subtitle" x="0" y="150">Architecture, modernization, and delivery for mission‑critical systems.</text>
+  </g>
+  <g transform="translate(70,500)">
+    <rect x="0" y="-34" width="285" height="44" rx="12" fill="rgba(148,163,184,0.15)"/>
+    <text x="18" y="-3" class="subtitle" style="font-size:22px; fill:#93c5fd">Pyxis Aviate</text>
+    <text x="180" y="-3" class="subtitle" style="font-size:22px; fill:#94a3b8">— Labs</text>
+  </g>
+</svg>
