@@ -130,7 +130,13 @@ a:hover { text-decoration: underline; }
 
 /* --- Feature list --- */
 .feature-list { list-style: none; padding: 0; margin: 16px 0 20px 0; display: grid; gap: 10px; }
-.feature-list li { display: grid; grid-template-columns: 18px 1fr; align-items: start; gap: 10px; }
+/*
+    Previous implementation used a two-column CSS grid (18px + 1fr)
+    assuming a leading marker element. The markup doesn't include that
+    marker, so items were placed in the 18px column, forcing words to
+    wrap one-per-line. Switch to a single-column flow.
+*/
+.feature-list li { display: block; }
 .feature-mark { display: inline-block; width: 10px; height: 10px; margin-top: 8px; border-radius: 50%; background: var(--accent); }
 
 .cta-row { display: flex; gap: 12px; flex-wrap: wrap; margin-top: 10px; }
@@ -183,4 +189,3 @@ a:hover { text-decoration: underline; }
     .btn-ghost { color: #0f172a; border-color: var(--line); }
     .hero-cta .btn-ghost { color: #fff; border-color: rgba(255,255,255,0.4); }
 }
-
