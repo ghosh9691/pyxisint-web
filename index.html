@@ -1,314 +1,560 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Pyxis International Consulting — Fractional CTO & High‑Value Engineering</title>
-    <meta name="description"
-        content="High‑value consulting and fractional CTO services to architect, modernize, and deliver mission‑critical systems. Pyxis Aviate (Labs) explores future airline operations." />
-    <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://pyxisint.com/" />
-    <meta name="theme-color" content="#2563eb" />
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Pyxis International — Engineering leadership for mission‑critical systems</title>
+<meta name="description" content="Fractional CTO and hands‑on consulting for aviation operations and enterprise software. Pyxis Aviate (Labs) — a modern airline operations platform in development." />
+<link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
+<link rel="stylesheet" href="site.css" />
 
-    <!-- Open Graph -->
-    <meta property="og:title" content="Pyxis International Consulting — Fractional CTO & High‑Value Engineering" />
-    <meta property="og:description"
-        content="Hands‑on senior consulting to architect, modernize, and ship mission‑critical systems. Pyxis Aviate (Labs) for airline ops." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://pyxisint.com/" />
-    <meta property="og:site_name" content="Pyxis International Consulting" />
-    <meta property="og:image" content="https://pyxisint.com/images/og-image.svg" />
-    <meta property="og:image:alt" content="Pyxis International — Fractional CTO & High‑Value Engineering" />
-    <meta property="og:image" content="https://pyxisint.com/images/pyxisint-hero.png" />
-
-    <!-- Twitter -->
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Pyxis International Consulting — Fractional CTO & High‑Value Engineering" />
-    <meta name="twitter:description"
-        content="Senior consulting to align engineering with outcomes. Pyxis Aviate (Labs) in development." />
-    <meta name="twitter:image" content="https://pyxisint.com/images/pyxisint-hero.png" />
-    <meta name="twitter:image:alt" content="Pyxis International — Fractional CTO & High‑Value Engineering" />
-
-    <!-- Fonts & Styles -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Merriweather:wght@300;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="css/master.css?v=20251118" />
-    <link rel="icon" type="image/svg+xml" href="images/favicon.svg" />
-    <link rel="apple-touch-icon" sizes="180x180" href="images/pyxisint-hero.png" />
-    <link rel="mask-icon" href="images/safari-pinned-tab.svg" color="#2563eb" />
-    <meta name="apple-mobile-web-app-title" content="Pyxis International" />
-
-    <!-- Schema.org structured data -->
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "Organization",
-            "name": "Pyxis International Consulting",
-            "url": "https://pyxisint.com/",
-            "sameAs": [],
-            "logo": "images/pyxisint-hero.png",
-            "address": {
-                "@type": "PostalAddress",
-                "addressLocality": "New York Metropolitan Area",
-                "addressRegion": "NY",
-                "addressCountry": "US"
-            },
-            "contactPoint": [{
-                "@type": "ContactPoint",
-                "email": "info@pyxisint.com",
-                "contactType": "sales"
-            }]
-        }
-    </script>
-    <script type="application/ld+json">
-        {
-            "@context": "https://schema.org",
-            "@type": "SoftwareApplication",
-            "name": "Pyxis Aviate",
-            "applicationCategory": "BusinessApplication",
-            "operatingSystem": "Web",
-            "url": "https://pyxisint.com/",
-            "offers": {
-                "@type": "Offer",
-                "availability": "https://schema.org/PreOrder",
-                "price": "0",
-                "priceCurrency": "USD"
-            }
-        }
-    </script>
+<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
 </head>
+<body data-hero="radar" data-density="comfy" data-accent="amber">
 
-<body>
-    <header class="site-nav">
-        <div class="container nav-wrap">
-            <a class="brand" href="#top" aria-label="Pyxis International">
-                <span class="brand-mark" aria-hidden="true">✦</span>
-                <span class="brand-text">Pyxis International</span>
-            </a>
-            <nav class="nav-links" aria-label="Primary navigation">
-                <a href="#advisory">Advisory</a>
-                <a href="#services">Services</a>
-                <a href="#engagements">Engagements</a>
-                <a href="#pyxis-aviate">Labs</a>
-                <a href="#about">About</a>
-                <a href="#contact">Contact</a>
-            </nav>
+<!-- =========================== TOP NAV =========================== -->
+<header class="site-nav">
+  <div class="nav-inner">
+    <a href="#top" class="brand" aria-label="Pyxis International">
+      <span class="brand-star" aria-hidden="true">✦</span>
+      <span class="brand-text">Pyxis<span class="amber">International</span></span>
+    </a>
+    <nav class="nav-links" aria-label="Primary">
+      <a href="#capabilities">Capabilities</a>
+      <a href="#engagements">Engagements</a>
+      <a href="#advisory">Advisory</a>
+      <a href="#aviate">Labs</a>
+      <a href="#about">About</a>
+    </nav>
+    <div class="nav-meta">
+      <div class="nav-clock" aria-live="polite">
+        <span class="pulse" aria-hidden="true"></span>
+        <span id="zulu">— — : — — Z</span>
+      </div>
+      <a href="#contact" class="nav-cta">Book consultation</a>
+    </div>
+  </div>
+</header>
+
+<main id="top">
+
+<!-- =========================== HERO =========================== -->
+<section class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="container hero-inner">
+    <div>
+      <div class="hero-eyebrow">
+        <span class="dot" aria-hidden="true"></span>
+        Now accepting Q3 engagements
+      </div>
+      <h1>Precision engineering<br />for <b>mission‑critical</b> systems.</h1>
+      <p class="lead">Fractional CTO leadership and hands‑on consulting for aviation operations, enterprise software, and the regulated edges where reliability is non‑negotiable.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Book a consultation <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#capabilities">See capabilities</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat">
+          <span class="v">30<span style="color:var(--pyxis-amber)">+</span></span>
+          <div class="l">Years in industry</div>
         </div>
-    </header>
-
-    <main id="top">
-        <section class="hero">
-            <div class="hero-bg" role="img" aria-label="Aircraft wing and sky"></div>
-            <div class="container hero-inner">
-                <h1>Engineering Leadership for Mission‑Critical Systems</h1>
-                <p>Fractional CTO and hands‑on consulting for aviation operations and enterprise
-                software — clear architecture, focused delivery, measurable outcomes.</p>
-                <div class="hero-cta">
-                    <a class="btn btn-primary" href="#contact">Book a consultation</a>
-                    <a class="btn btn-ghost" href="#services">See services</a>
-                </div>
-            </div>
-        </section>
-
-        <section id="advisory" class="section section-accent">
-            <div class="container grid-two">
-                <div class="col">
-                    <span class="eyebrow">High‑Value Consulting</span>
-                    <h2 class="section-title">Fractional CTO & Advisory</h2>
-                    <p class="section-lead">Strategy to execution: architecture reviews, modernization roadmaps, and
-                        hands‑on leadership to unblock delivery and elevate engineering practice.</p>
-                    <ul class="feature-list">
-                        <li>Executive‑level guidance aligned to business goals and risks.</li>
-                        <li>Architecture and platform decisions with clear trade‑offs.</li>
-                        <li>Modernization and de‑risking plans with staged outcomes.</li>
-                        <li>Team mentoring, process tuning, and quality baselines.</li>
-                    </ul>
-                    <div class="cta-row">
-                        <a class="btn btn-primary" href="#contact">Discuss an engagement</a>
-                        <a class="btn btn-ghost" href="#services">View all services</a>
-                    </div>
-                </div>
-                <div class="col panel">
-                    <div class="panel-header">Typical Engagements</div>
-                    <ul class="feature-list">
-                        <li>4–12 week architecture & codebase assessment</li>
-                        <li>1–3 days/week fractional CTO</li>
-                        <li>Cloud migration & cost/perf tuning initiatives</li>
-                        <li>Delivery rescue and remediation plans</li>
-                    </ul>
-                </div>
-            </div>
-        </section>
-
-        <section id="engagements" class="section">
-            <div class="container">
-                <h2 class="section-title">Engagement Models</h2>
-                <p class="section-lead">Clear, outcome‑oriented ways to work together. Start focused, scale as needed.
-                </p>
-                <div class="tiles">
-                    <article class="tile">
-                        <h3>Architecture Sprint</h3>
-                        <p>2–4 weeks to assess, decide, and set a clear path. Deliverables: architecture memo, risks,
-                            and 90‑day plan.</p>
-                        <div class="badges"><span class="badge">Fixed‑scope</span><span class="badge">Fast</span></div>
-                    </article>
-                    <article class="tile">
-                        <h3>Fractional CTO</h3>
-                        <p>Hands‑on leadership 1–3 days/week. Align roadmap, mentor team, and drive delivery with crisp
-                            priorities.</p>
-                        <div class="badges"><span class="badge">Retainer</span><span class="badge">Leadership</span>
-                        </div>
-                    </article>
-                    <article class="tile">
-                        <h3>Delivery Rescue</h3>
-                        <p>Stabilize a slipping initiative. Diagnose bottlenecks and implement a pragmatic remediation
-                            and recovery plan.</p>
-                        <div class="badges"><span class="badge">Time‑boxed</span><span class="badge">Hands‑on</span>
-                        </div>
-                    </article>
-                    <article class="tile">
-                        <h3>Cloud & Cost</h3>
-                        <p>Right‑size infrastructure, improve performance, and reduce cost without risking reliability.
-                        </p>
-                        <div class="badges"><span class="badge">Optimization</span><span class="badge">Cloud</span>
-                        </div>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="services" class="section">
-            <div class="container">
-                <h2 class="section-title">Services</h2>
-                <p class="section-lead">Senior consulting designed to drive outcomes fast — clear architecture, focused
-                    delivery, and durable systems.</p>
-                <div class="cards">
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">🧭</div>
-                        <h3>Fractional CTO & Advisory</h3>
-                        <p>Executive‑level guidance, roadmaps, and pragmatic leadership to align engineering with
-                            business and ship confidently.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">💻</div>
-                        <h3>Custom Software Engineering</h3>
-                        <p>Full‑stack development in .NET, C#, C++, and cloud architectures. Design, modernize, and
-                            refactor mission‑critical systems.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">✈️</div>
-                        <h3>Aviation Technology & Operations</h3>
-                        <p>Dispatch, flight planning, MEL/MMEL automation, ARINC 424 parsing, and operational tooling
-                            for airline workflows.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">🧠</div>
-                        <h3>AI & Automation</h3>
-                        <p>AI‑assisted workflows, local LLM integration, OCR pipelines, and intelligent data processing
-                            to unlock efficiency.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">🔗</div>
-                        <h3>Systems Integration</h3>
-                        <p>Bridging legacy and modern platforms, API design, data transformation, and secure enterprise
-                            integration patterns.</p>
-                    </article>
-                    <article class="card">
-                        <div class="card-icon" aria-hidden="true">☁️</div>
-                        <h3>Database & Cloud Architecture</h3>
-                        <p>High‑availability design, SQL/NoSQL modeling, performance tuning, and scalable cloud
-                            migration strategies.</p>
-                    </article>
-                </div>
-            </div>
-        </section>
-
-        <section id="pyxis-aviate" class="section section-muted">
-            <div class="container grid-two">
-                <div class="col">
-                    <span class="eyebrow">Labs</span>
-                    <h2 class="section-title">Pyxis Aviate</h2>
-                    <p class="section-lead">In development: a modern airline operations platform spanning dispatch,
-                        crew, fleet, and day‑of‑ops performance.</p>
-                    <p>We’re seeking a small group of design partners to shape early capabilities and integrations.</p>
-                    <ul class="feature-list">
-                        <li>Flight Ops: real‑time situational awareness, flight watch, NOTAMs, weather overlays, and
-                            disruption management.</li>
-                        <li>Crew & Duty: rostering, legality checks, qualifications, and compliance with configurable
-                            rules engines.</li>
-                        <li>Fleet & Maintenance: aircraft status, MEL/CDL tracking, planned/unplanned maintenance
-                            visibility.</li>
-                        <li>Data & Integrations: ARINC 424, AIDX, ACARS/AFDX gateways, and flexible API integrations.
-                        </li>
-                    </ul>
-                    <div class="cta-row">
-                        <a class="btn btn-primary"
-                            href="mailto:contact@pyxisint.com?subject=Pyxis%20Aviate%20Early%20Access">Join
-                            early access</a>
-                        <a class="btn btn-ghost" href="#services">See services</a>
-                    </div>
-                </div>
-                <div class="col panel">
-                    <div class="panel-header">Operational Snapshot</div>
-                    <div class="panel-metrics">
-                        <div class="metric">
-                            <div class="metric-value">99.95%</div>
-                            <div class="metric-label">Uptime Target</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value"><span aria-hidden="true">↘</span> 42%</div>
-                            <div class="metric-label">Delay Minutes</div>
-                        </div>
-                        <div class="metric">
-                            <div class="metric-value"><span aria-hidden="true">↗</span> 18%</div>
-                            <div class="metric-label">Crew Utilization</div>
-                        </div>
-                    </div>
-                    <p class="panel-note">Illustrative metrics for demonstration purposes.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="about" class="section">
-            <div class="container">
-                <h2 class="section-title">About</h2>
-                <p>Founded by a veteran software engineer with 30+ years across aviation, healthcare, finance,
-                    communications, and cloud‑native SaaS. We deliver elegant, stable, and high‑performance systems
-                    tailored to real‑world operations. From flight planning to enterprise workflows, we bring clarity,
-                    precision, and pragmatic engineering to every engagement.</p>
-            </div>
-        </section>
-
-        <section id="contact" class="section section-muted">
-            <div class="container">
-                <h2 class="section-title">Contact</h2>
-                <p class="section-lead">Interested in working together or seeing Pyxis Aviate in action?</p>
-                <div class="contact-grid">
-                    <div>
-                        <p><strong>Email:</strong> <a href="mailto:info@pyxisint.com">info@pyxisint.com</a></p>
-                        <p><strong>Location:</strong> New York Metropolitan Area, USA</p>
-                    </div>
-                    <div>
-                        <a class="btn btn-primary"
-                            href="mailto:info@pyxisint.com?subject=Pyxis%20Aviate%20Demo%20Request">Request a
-                            demo</a>
-                    </div>
-                </div>
-            </div>
-        </section>
-    </main>
-
-    <footer class="site-footer">
-        <div class="container footer-wrap">
-            <p>© 2025 Pyxis International Consulting</p>
-            <a href="#top" class="back-to-top">Back to top ↑</a>
+        <div class="hero-stat">
+          <span class="v">99.95<span style="color:var(--pyxis-amber)">%</span></span>
+          <div class="l">Uptime target</div>
         </div>
-    </footer>
+        <div class="hero-stat">
+          <span class="v">6</span>
+          <div class="l">Verticals shipped</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Right side: instrument-style live panel -->
+    <aside class="instrument" aria-label="Operations snapshot">
+      <div class="instr-head">
+        <span class="dot" aria-hidden="true"></span>
+        <span class="instr-title">Ops Snapshot</span>
+        <span class="instr-meta">AIRAC 2507 · LIVE</span>
+      </div>
+      <div class="instr-body">
+        <div class="istat-row">
+          <div class="istat amber">
+            <div class="l">On‑time dep</div>
+            <div class="v">92.4%</div>
+            <div class="d">↑ 1.2 vs target</div>
+          </div>
+          <div class="istat green">
+            <div class="l">Active</div>
+            <div class="v">147</div>
+            <div class="d">42 airborne</div>
+          </div>
+          <div class="istat">
+            <div class="l">Delay min</div>
+            <div class="v">↓ 42%</div>
+            <div class="d">28‑day rolling</div>
+          </div>
+        </div>
+
+        <div class="metar-row">
+          <span class="metar-icao">KJFK</span>
+          <span class="metar-raw">28009KT 10SM FEW250 22/14 A3002</span>
+          <span class="badge green"><span class="dot"></span>VFR</span>
+        </div>
+        <div class="metar-row">
+          <span class="metar-icao">EGLL</span>
+          <span class="metar-raw">21015G24KT 6000 OVC008 11/09 Q1004</span>
+          <span class="badge amber"><span class="dot"></span>MVFR</span>
+        </div>
+        <div class="metar-row">
+          <span class="metar-icao">OMDB</span>
+          <span class="metar-raw">12008KT 9999 FEW040 SCT240 34/19 Q1009</span>
+          <span class="badge green"><span class="dot"></span>VFR</span>
+        </div>
+        <div class="metar-row" style="margin-bottom:0">
+          <span class="metar-icao">VABB</span>
+          <span class="metar-raw">26012KT 1200 +RA BKN012 OVC080 26/24</span>
+          <span class="badge red"><span class="dot"></span>IFR</span>
+        </div>
+      </div>
+      <div class="instr-foot">
+        <span>PYX401 · KJFK→EGLL</span>
+        <span class="sep">/</span>
+        <span>FL380 · ETA 18:42Z</span>
+        <span class="sep">/</span>
+        <span style="color:var(--pyxis-teal)">AIRBORNE</span>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- =========================== CAPABILITIES =========================== -->
+<section id="capabilities" class="section">
+  <div class="container">
+    <div class="section-label">01 — Capabilities</div>
+    <h2 class="section-title">Senior consulting designed for <b>durable systems</b>.</h2>
+    <p class="section-lead">Clear architecture, focused delivery, measurable outcomes. We work where complexity, compliance, and uptime intersect — and where second‑rate engineering becomes operational risk.</p>
+
+    <div class="cards-grid">
+      <article class="scard">
+        <div class="scard-icon" aria-hidden="true">⬡</div>
+        <h3>Fractional CTO &amp; Advisory</h3>
+        <p>Executive‑level guidance, roadmaps, and pragmatic leadership to align engineering with business outcomes and ship with confidence.</p>
+        <div class="scard-tags"><span class="scard-tag">Retainer</span><span class="scard-tag">Strategy</span></div>
+      </article>
+
+      <article class="scard">
+        <div class="scard-icon" aria-hidden="true">⊞</div>
+        <h3>Custom Software Engineering</h3>
+        <p>Full‑stack delivery in .NET, C#, C++, and cloud‑native architectures. Design, modernize, and refactor mission‑critical systems end‑to‑end.</p>
+        <div class="scard-tags"><span class="scard-tag">.NET</span><span class="scard-tag">C++</span><span class="scard-tag">Cloud</span></div>
+      </article>
+
+      <article class="scard">
+        <div class="scard-icon" aria-hidden="true">✈</div>
+        <h3>Aviation Technology &amp; Ops</h3>
+        <p>Dispatch, flight planning, MEL/MMEL automation, ARINC 424 parsing, and operational tooling for the realities of airline workflows.</p>
+        <div class="scard-tags"><span class="scard-tag">ARINC 424</span><span class="scard-tag">MMEL</span><span class="scard-tag">Dispatch</span></div>
+      </article>
+
+      <article class="scard">
+        <div class="scard-icon" aria-hidden="true">⊛</div>
+        <h3>AI &amp; Automation</h3>
+        <p>AI‑assisted workflows, local LLM integration, OCR pipelines, and intelligent data processing — applied where it pays back, not where it markets.</p>
+        <div class="scard-tags"><span class="scard-tag">LLM</span><span class="scard-tag">OCR</span><span class="scard-tag">RPA</span></div>
+      </article>
+
+      <article class="scard">
+        <div class="scard-icon" aria-hidden="true">⋈</div>
+        <h3>Systems Integration</h3>
+        <p>Bridging legacy and modern platforms — API design, data transformation, and the secure enterprise integration patterns that actually hold up under load.</p>
+        <div class="scard-tags"><span class="scard-tag">API</span><span class="scard-tag">ETL</span><span class="scard-tag">SOA</span></div>
+      </article>
+
+      <article class="scard">
+        <div class="scard-icon" aria-hidden="true">◈</div>
+        <h3>Database &amp; Cloud Architecture</h3>
+        <p>High‑availability design, SQL/NoSQL modeling, performance tuning, and scalable cloud migration plans staged for safety, not theatre.</p>
+        <div class="scard-tags"><span class="scard-tag">SQL</span><span class="scard-tag">NoSQL</span><span class="scard-tag">AWS · Azure</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== ENGAGEMENT MODELS =========================== -->
+<section id="engagements" class="section">
+  <div class="container">
+    <div class="section-label">02 — Engagement Models</div>
+    <h2 class="section-title">Clear, outcome‑oriented ways to <b>work together</b>.</h2>
+    <p class="section-lead">Start focused, scale as needed. Every engagement begins with a discovery call and a written scope — no open‑ended retainers, no surprise burn rates.</p>
+
+    <div class="tiles">
+      <article class="tile amber">
+        <div class="tile-label">SP‑01 · FIXED SCOPE</div>
+        <h3>Architecture Sprint</h3>
+        <p>Assess, decide, and set a clear path. Deliverables: architecture memo, risk register, 90‑day plan.</p>
+        <div class="tile-meta"><span><b>2–4</b> weeks</span><span><b>Fixed</b> price</span></div>
+      </article>
+
+      <article class="tile green">
+        <div class="tile-label">SP‑02 · RETAINER</div>
+        <h3>Fractional CTO</h3>
+        <p>Hands‑on leadership 1–3 days/week. Align roadmap, mentor team, drive delivery with crisp priorities.</p>
+        <div class="tile-meta"><span><b>1–3</b> d/wk</span><span><b>Quarterly</b> review</span></div>
+      </article>
+
+      <article class="tile red">
+        <div class="tile-label">SP‑03 · TIME‑BOXED</div>
+        <h3>Delivery Rescue</h3>
+        <p>Stabilize a slipping initiative. Diagnose bottlenecks; implement a pragmatic remediation plan with you.</p>
+        <div class="tile-meta"><span><b>6–12</b> weeks</span><span><b>On‑site</b> available</span></div>
+      </article>
+
+      <article class="tile blue">
+        <div class="tile-label">SP‑04 · OPTIMIZATION</div>
+        <h3>Cloud &amp; Cost</h3>
+        <p>Right‑size infrastructure, improve performance, and reduce spend without risking reliability.</p>
+        <div class="tile-meta"><span><b>4–8</b> weeks</span><span><b>Outcome</b> tied</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== ADVISORY =========================== -->
+<section id="advisory" class="section">
+  <div class="container grid-two">
+    <div>
+      <div class="section-label">03 — Advisory</div>
+      <h2 class="section-title">Strategy to execution, without the consulting theatre.</h2>
+      <p class="section-lead">Architecture reviews, modernization roadmaps, and hands‑on leadership to unblock delivery and elevate engineering practice — delivered in plain language, with decisions written down.</p>
+      <ul class="feature-list">
+        <li><div><b>Executive‑level guidance</b><span>Aligned to business goals, risks, and the operational realities of regulated environments.</span></div></li>
+        <li><div><b>Architecture &amp; platform decisions</b><span>With clear trade‑offs, a written rationale, and a path forward that survives the next reorg.</span></div></li>
+        <li><div><b>Modernization &amp; de‑risking</b><span>Staged outcomes that keep production stable while the legacy is incrementally retired.</span></div></li>
+        <li><div><b>Team mentoring &amp; baselines</b><span>Process tuning, code review culture, and quality baselines that compound over quarters.</span></div></li>
+      </ul>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="#contact">Discuss an engagement <span aria-hidden="true">→</span></a>
+        <a class="btn btn-ghost" href="#capabilities">View capabilities</a>
+      </div>
+    </div>
+
+    <aside class="panel" aria-label="Typical engagements">
+      <div class="panel-header">
+        <span class="dot" aria-hidden="true"></span>
+        <span>Typical Engagements</span>
+        <span class="pill">2026 · OPEN</span>
+      </div>
+      <div class="panel-body">
+        <div class="panel-row">
+          <span class="pr-code">A‑SPRINT</span>
+          <div>
+            <div class="pr-title">Architecture &amp; codebase assessment</div>
+            <div class="pr-sub">Discovery interviews, code archaeology, written 90‑day plan.</div>
+          </div>
+          <div class="pr-meta">4–12 WK</div>
+        </div>
+        <div class="panel-row">
+          <span class="pr-code">FRAC‑CTO</span>
+          <div>
+            <div class="pr-title">Fractional CTO retainer</div>
+            <div class="pr-sub">1–3 days/week of senior leadership, embedded in your cadence.</div>
+          </div>
+          <div class="pr-meta">ONGOING</div>
+        </div>
+        <div class="panel-row">
+          <span class="pr-code">CLOUD‑OPT</span>
+          <div>
+            <div class="pr-title">Cloud migration &amp; cost/perf tuning</div>
+            <div class="pr-sub">Right‑size, refactor, and stage rollouts without sacrificing uptime.</div>
+          </div>
+          <div class="pr-meta">6–10 WK</div>
+        </div>
+        <div class="panel-row">
+          <span class="pr-code">RESCUE</span>
+          <div>
+            <div class="pr-title">Delivery rescue &amp; remediation</div>
+            <div class="pr-sub">Stabilize slipping programs; rebuild trust between eng &amp; business.</div>
+          </div>
+          <div class="pr-meta">8–12 WK</div>
+        </div>
+        <div class="panel-row">
+          <span class="pr-code">AVI‑OPS</span>
+          <div>
+            <div class="pr-title">Aviation operations tooling</div>
+            <div class="pr-sub">Dispatch, MEL, ARINC 424, weather &amp; NOTAM pipelines.</div>
+          </div>
+          <div class="pr-meta">CUSTOM</div>
+        </div>
+      </div>
+    </aside>
+  </div>
+</section>
+
+<!-- =========================== AVIATE LABS =========================== -->
+<section id="aviate" class="section labs">
+  <div class="container">
+    <div class="section-label">04 — Pyxis Aviate Labs</div>
+    <div class="labs-header">
+      <div>
+        <h2 class="section-title" style="margin-bottom:18px">A modern airline operations platform — <b>in development</b>.</h2>
+        <p>Dispatch, crew, fleet, and day‑of‑ops performance, unified in a precision instrument. We're seeking a small group of design partners to shape early capabilities and integrations.</p>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary" href="mailto:info@pyxisint.com?subject=Pyxis%20Aviate%20Early%20Access">Join early access</a>
+      </div>
+    </div>
+
+    <div class="labs-feature-grid">
+      <div class="lfeat">
+        <div class="lfeat-icon">⊙</div>
+        <h4>Flight Ops</h4>
+        <p>Real‑time situational awareness, flight watch, NOTAMs, weather overlays, disruption management.</p>
+      </div>
+      <div class="lfeat">
+        <div class="lfeat-icon">◑</div>
+        <h4>Crew &amp; Duty</h4>
+        <p>Rostering, legality checks, qualifications, and compliance with configurable rules engines.</p>
+      </div>
+      <div class="lfeat">
+        <div class="lfeat-icon">◧</div>
+        <h4>Fleet &amp; Maintenance</h4>
+        <p>Aircraft status, MEL/CDL tracking, planned and unplanned maintenance visibility in one pane.</p>
+      </div>
+      <div class="lfeat">
+        <div class="lfeat-icon">⋈</div>
+        <h4>Data &amp; Integrations</h4>
+        <p>ARINC 424, AIDX, ACARS/AFDX gateways, and flexible APIs for the systems already in your stack.</p>
+      </div>
+    </div>
+
+    <!-- Live(ish) dashboard preview -->
+    <div class="dash" aria-label="Pyxis Aviate dashboard preview">
+      <div class="dash-topbar">
+        <div class="tb-brand">
+          <span class="star">✦</span>
+          <b>Pyxis <span>Aviate</span></b>
+        </div>
+        <span class="sep">/</span>
+        <span class="crumb">Dispatch</span>
+        <span class="sep">/</span>
+        <span class="crumb"><b>Overview</b></span>
+        <span class="airac-pill">AIRAC 2507</span>
+        <div class="avatar">PG</div>
+      </div>
+
+      <div class="dash-body">
+        <aside class="dash-sidebar">
+          <div class="dash-side-label">Operations</div>
+          <div class="dash-nav-item active"><span class="ico">⬡</span> Dispatch</div>
+          <div class="dash-nav-item"><span class="ico">◎</span> Flight Watch</div>
+          <div class="dash-nav-item"><span class="ico">⊞</span> Flight Planning</div>
+          <div class="dash-nav-item"><span class="ico">◈</span> Load &amp; Fuel</div>
+          <div class="dash-side-label">Intelligence</div>
+          <div class="dash-nav-item"><span class="ico">⊙</span> METAR / TAF</div>
+          <div class="dash-nav-item"><span class="ico">⊕</span> NOTAMs<span class="nbadge">12</span></div>
+          <div class="dash-nav-item"><span class="ico">⋈</span> Nav Data</div>
+          <div class="dash-side-label">Resources</div>
+          <div class="dash-nav-item"><span class="ico">◧</span> Aircraft</div>
+          <div class="dash-nav-item"><span class="ico">◑</span> Crew</div>
+        </aside>
+
+        <div class="dash-main">
+          <div class="dash-main-head">
+            <div>
+              <div class="dash-main-title">Dispatch Overview</div>
+              <div class="dash-main-sub">Active flights — AIRAC 2507 · 14:32Z</div>
+            </div>
+          </div>
+
+          <div class="dash-stat-grid">
+            <div class="dash-stat accent">
+              <div class="l">On‑time dep</div>
+              <div class="v">92.4%</div>
+              <div class="d delta-up">↑ 1.2 vs target</div>
+            </div>
+            <div class="dash-stat green">
+              <div class="l">Active flights</div>
+              <div class="v">147</div>
+              <div class="d delta-up">↑ 8 from yesterday</div>
+            </div>
+            <div class="dash-stat red">
+              <div class="l">Delay minutes</div>
+              <div class="v">324</div>
+              <div class="d delta-down">↓ 12% vs target</div>
+            </div>
+            <div class="dash-stat blue">
+              <div class="l">Crew util</div>
+              <div class="v">78.2%</div>
+              <div class="d delta-warn">→ Holding steady</div>
+            </div>
+          </div>
+
+          <div class="dash-cols">
+            <div>
+              <div class="dash-section-label">Active METARs</div>
+              <div class="metar-row">
+                <span class="metar-icao">KJFK</span>
+                <span class="metar-raw">28009KT 10SM FEW250 22/14 A3002</span>
+                <span class="badge green"><span class="dot"></span>VFR</span>
+              </div>
+              <div class="metar-row">
+                <span class="metar-icao">EGLL</span>
+                <span class="metar-raw">21015G24KT 6000 OVC008 11/09 Q1004</span>
+                <span class="badge amber"><span class="dot"></span>MVFR</span>
+              </div>
+              <div class="metar-row">
+                <span class="metar-icao">VABB</span>
+                <span class="metar-raw">26012KT 1200 +RA BKN012 OVC080 26/24</span>
+                <span class="badge red"><span class="dot"></span>IFR</span>
+              </div>
+              <div class="metar-row" style="margin-bottom:0">
+                <span class="metar-icao">RJTT</span>
+                <span class="metar-raw">07014KT 9999 SCT025 BKN100 18/12 Q1019</span>
+                <span class="badge teal"><span class="dot"></span>VFR</span>
+              </div>
+            </div>
+
+            <div>
+              <div class="dash-section-label">Operational Alerts</div>
+              <div class="alert warn">
+                <span class="ai">◈</span>
+                <div>
+                  <div class="at">NOTAM — EGLL RWY 27L/09R Closed</div>
+                  <div class="ab">Runway closed for maintenance 0600–1200Z. Affected flights must confirm alternate routing via ATIS D/B before release.</div>
+                </div>
+              </div>
+              <div class="alert danger">
+                <span class="ai">⚠</span>
+                <div>
+                  <div class="at">Diversion — PYX401 → EGCC</div>
+                  <div class="ab">Diverting to Manchester due to weather minima at EGLL. Crew duty time 11:32 / legal max 13:00.</div>
+                </div>
+              </div>
+              <div class="alert info">
+                <span class="ai">ℹ</span>
+                <div>
+                  <div class="at">Flight Plan Filed — PYX119</div>
+                  <div class="ab">ICAO FPL accepted by FAA ATC. Clearance valid 60 minutes.</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== ABOUT =========================== -->
+<section id="about" class="section">
+  <div class="container">
+    <div class="section-label">05 — About</div>
+    <div class="about-grid">
+      <div>
+        <p>Pyxis was founded by a veteran software engineer with 30+ years across aviation, healthcare, finance, communications, and cloud‑native SaaS.</p>
+        <p>We build elegant, stable, high‑performance systems tailored to real‑world operations — from flight planning to enterprise workflows. The work is small‑team, senior‑led, and free of the staffing overhead that bloats most consulting engagements.</p>
+        <p>Named for the constellation Pyxis — the mariner's compass — we orient by the same principle: precision over polish, decisions written down, and outcomes you can audit a year later.</p>
+      </div>
+      <div class="about-stats">
+        <div class="about-stat">
+          <div class="v">30+</div>
+          <div class="l">Years</div>
+          <div class="s">Across aviation, healthcare, finance, comms, SaaS.</div>
+        </div>
+        <div class="about-stat">
+          <div class="v">6</div>
+          <div class="l">Verticals</div>
+          <div class="s">Regulated industries shipped end‑to‑end.</div>
+        </div>
+        <div class="about-stat">
+          <div class="v">.NET</div>
+          <div class="l">Primary stack</div>
+          <div class="s">C# / C++ / cloud‑native, with deep aviation domain.</div>
+        </div>
+        <div class="about-stat">
+          <div class="v">NYC</div>
+          <div class="l">Based in</div>
+          <div class="s">New York Metropolitan Area · Remote‑first.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =========================== CONTACT =========================== -->
+<section id="contact" class="section">
+  <div class="container">
+    <div class="section-label">06 — Contact</div>
+    <div class="contact">
+      <div>
+        <h2>Let's talk about your <b>mission‑critical</b> systems.</h2>
+        <p>Most engagements start with a 30‑minute discovery call: a quick read of where you are, what's slipping, and what a written 90‑day plan might cover. No deck, no pitch.</p>
+        <div class="contact-meta">
+          <div class="row"><span class="l">EMAIL</span><a href="mailto:info@pyxisint.com">info@pyxisint.com</a></div>
+          <div class="row"><span class="l">LOCATION</span><span>New York Metropolitan Area, USA</span></div>
+          <div class="row"><span class="l">RESPONSE</span><span>Within 1 business day · M–F</span></div>
+          <div class="row"><span class="l">AVAILABILITY</span><span style="color:var(--pyxis-green)">● Q3 2026 — accepting new engagements</span></div>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        <div class="opt-label">PRIMARY CTA</div>
+        <div class="opt-title">Book a 30‑min consultation</div>
+        <div class="opt-desc">A written scope and 90‑day plan follow if there's a fit. No retainers required to start.</div>
+        <a class="btn btn-primary" style="width:100%;justify-content:center" href="mailto:info@pyxisint.com?subject=Pyxis%20Consultation%20Request">Email info@pyxisint.com →</a>
+        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--pyxis-border);font-family:var(--font-mono);font-size:10px;letter-spacing:0.04em;color:var(--pyxis-text-tertiary);text-transform:uppercase">Or request a Pyxis Aviate demo</div>
+        <a class="btn btn-ghost" style="width:100%;justify-content:center;margin-top:10px" href="mailto:info@pyxisint.com?subject=Pyxis%20Aviate%20Demo%20Request">Request Aviate demo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- =========================== FOOTER =========================== -->
+<footer class="site-footer">
+  <div class="container footer-wrap">
+    <div class="footer-left">
+      <span class="brand-star" style="color:var(--pyxis-amber);font-size:14px">✦</span>
+      <span style="color:var(--pyxis-text-secondary);font-family:var(--font-body);font-size:13px">© 2026 Pyxis International Consulting</span>
+      <span class="sep">·</span>
+      <span>NYC, USA</span>
+    </div>
+    <div class="footer-right">
+      <span>v2.0</span>
+      <span class="sep">·</span>
+      <span>AIRAC 2507</span>
+      <span class="sep">·</span>
+      <a href="#top" class="footer-back">Back to top ↑</a>
+    </div>
+  </div>
+</footer>
+
+<!-- Tweaks panel mount -->
+<div id="tweaks-root"></div>
+
+<!-- ============================ SCRIPTS ============================ -->
+<script>
+// Live Zulu clock in the nav
+(function() {
+  const el = document.getElementById('zulu');
+  if (!el) return;
+  function tick() {
+    const d = new Date();
+    const hh = String(d.getUTCHours()).padStart(2, '0');
+    const mm = String(d.getUTCMinutes()).padStart(2, '0');
+    const ss = String(d.getUTCSeconds()).padStart(2, '0');
+    el.textContent = `${hh}:${mm}:${ss}Z`;
+  }
+  tick();
+  setInterval(tick, 1000);
+})();
+</script>
+
+<script type="text/babel" src="tweaks-panel.jsx"></script>
+<script type="text/babel" src="tweaks.jsx"></script>
 
 </body>
-
 </html>
