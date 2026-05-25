@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600" fill="none" preserveAspectRatio="xMidYMid slice">
+  <defs>
+    <radialGradient id="g" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#e8a832" stop-opacity="0.18"></stop>
+      <stop offset="60%" stop-color="#e8a832" stop-opacity="0.04"></stop>
+      <stop offset="100%" stop-color="#0c0d0f" stop-opacity="0"></stop>
+    </radialGradient>
+    <pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse">
+      <path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="1"></path>
+    </pattern>
+  </defs>
+  <rect width="1200" height="600" fill="#0c0d0f"></rect>
+  <rect width="1200" height="600" fill="url(#grid)"></rect>
+  <circle cx="600" cy="300" r="500" fill="url(#g)"></circle>
+  
+  <g stroke="rgba(232,168,50,0.12)" fill="none" stroke-width="1">
+    <circle cx="600" cy="300" r="120"></circle>
+    <circle cx="600" cy="300" r="220"></circle>
+    <circle cx="600" cy="300" r="320"></circle>
+    <circle cx="600" cy="300" r="420"></circle>
+  </g>
+  
+  <g stroke="rgba(232,168,50,0.18)" stroke-width="1">
+    <line x1="600" y1="0" x2="600" y2="600"></line>
+    <line x1="0" y1="300" x2="1200" y2="300"></line>
+  </g>
+  
+  <line x1="600" y1="300" x2="980" y2="180" stroke="#e8a832" stroke-width="1.5" opacity="0.5"></line>
+  
+  <g fill="#e8a832">
+    <circle cx="730" cy="240" r="3"></circle>
+    <circle cx="510" cy="190" r="2"></circle>
+    <circle cx="820" cy="370" r="2.5"></circle>
+    <circle cx="430" cy="410" r="2"></circle>
+    <circle cx="680" cy="450" r="2"></circle>
+  </g>
+</svg>

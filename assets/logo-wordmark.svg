@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 64" fill="none">
+  
+  <g transform="translate(16, 32)">
+    <path d="M0 -18 L4 -4 L18 0 L4 4 L0 18 L-4 4 L-18 0 L-4 -4 Z" fill="#e8a832"></path>
+  </g>
+  
+  <text x="44" y="40" font-family="DM Sans, sans-serif" font-size="22" font-weight="600" letter-spacing="-0.01em" fill="#f0f0ee">Pyxis</text>
+  <text x="108" y="40" font-family="DM Sans, sans-serif" font-size="22" font-weight="600" letter-spacing="-0.01em" fill="#e8a832">Aviate</text>
+</svg>

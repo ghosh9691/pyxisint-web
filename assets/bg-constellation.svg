@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 200" fill="none" preserveAspectRatio="xMidYMid slice">
+  <rect width="1200" height="200" fill="#0c0d0f"></rect>
+  
+  <g fill="#f0f0ee">
+    <circle cx="80" cy="40" r="0.8" opacity="0.6"></circle>
+    <circle cx="180" cy="70" r="0.6" opacity="0.4"></circle>
+    <circle cx="260" cy="30" r="1" opacity="0.7"></circle>
+    <circle cx="340" cy="90" r="0.5" opacity="0.3"></circle>
+    <circle cx="420" cy="50" r="0.8" opacity="0.5"></circle>
+    <circle cx="540" cy="20" r="0.6" opacity="0.4"></circle>
+    <circle cx="640" cy="60" r="1.2" opacity="0.8"></circle>
+    <circle cx="720" cy="100" r="0.5" opacity="0.3"></circle>
+    <circle cx="820" cy="30" r="0.7" opacity="0.5"></circle>
+    <circle cx="940" cy="80" r="0.6" opacity="0.4"></circle>
+    <circle cx="1040" cy="40" r="0.9" opacity="0.6"></circle>
+    <circle cx="1140" cy="65" r="0.5" opacity="0.3"></circle>
+  </g>
+  
+  <g fill="#e8a832">
+    <circle cx="500" cy="100" r="2.5"></circle>
+    <circle cx="560" cy="115" r="2"></circle>
+    <circle cx="620" cy="105" r="2.8"></circle>
+    <circle cx="680" cy="125" r="2"></circle>
+  </g>
+  <g stroke="rgba(232,168,50,0.4)" stroke-width="0.8">
+    <line x1="500" y1="100" x2="560" y2="115"></line>
+    <line x1="560" y1="115" x2="620" y2="105"></line>
+    <line x1="620" y1="105" x2="680" y2="125"></line>
+  </g>
+</svg>
