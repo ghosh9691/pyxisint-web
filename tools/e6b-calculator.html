@@ -9,16 +9,16 @@
 <meta name="author" content="Pyxis International" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0c0d0f" />
-<link rel="canonical" href="https://pyxisint.com/tools/e6b-calculator.html" />
+<link rel="canonical" href="https://www.pyxisint.com/tools/e6b-calculator.html" />
 <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Pyxis International" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://pyxisint.com/tools/e6b-calculator.html" />
+<meta property="og:url" content="https://www.pyxisint.com/tools/e6b-calculator.html" />
 <meta property="og:title" content="E6B Flight Computer Online — Free Wind, TAS &amp; Density Altitude" />
 <meta property="og:description" content="Free, modern E6B flight computer: wind triangle, true airspeed, density altitude, time–speed–distance, fuel and conversions. Calculates live." />
-<meta property="og:image" content="https://pyxisint.com/assets/og/og-e6b.png" />
+<meta property="og:image" content="https://www.pyxisint.com/assets/og/og-e6b.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Pyxis E6B Flight Computer" />
@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="E6B Flight Computer Online — Free Wind, TAS &amp; Density Altitude" />
 <meta name="twitter:description" content="Free, modern E6B flight computer: wind triangle, TAS, density altitude, fuel and conversions." />
-<meta name="twitter:image" content="https://pyxisint.com/assets/og/og-e6b.png" />
+<meta name="twitter:image" content="https://www.pyxisint.com/assets/og/og-e6b.png" />
 
 <link rel="stylesheet" href="tools.css" />
 
@@ -37,22 +37,22 @@
     {
       "@type": "WebApplication",
       "name": "E6B Flight Computer",
-      "url": "https://pyxisint.com/tools/e6b-calculator.html",
+      "url": "https://www.pyxisint.com/tools/e6b-calculator.html",
       "applicationCategory": "UtilitiesApplication",
       "operatingSystem": "Web browser",
       "browserRequirements": "Requires JavaScript",
       "description": "A modern, mobile-first E6B flight computer for the wind triangle, true airspeed, density altitude, time–speed–distance, fuel planning and aviation unit conversions.",
-      "image": "https://pyxisint.com/assets/og/og-e6b.png",
+      "image": "https://www.pyxisint.com/assets/og/og-e6b.png",
       "isAccessibleForFree": true,
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "publisher": { "@type": "Organization", "name": "Pyxis International", "url": "https://pyxisint.com/" }
+      "publisher": { "@type": "Organization", "name": "Pyxis International", "url": "https://www.pyxisint.com/" }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyxisint.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pyxisint.com/tools/" },
-        { "@type": "ListItem", "position": 3, "name": "E6B Flight Computer", "item": "https://pyxisint.com/tools/e6b-calculator.html" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pyxisint.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.pyxisint.com/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "E6B Flight Computer", "item": "https://www.pyxisint.com/tools/e6b-calculator.html" }
       ]
     },
     {
@@ -292,6 +292,68 @@
 
   <p class="note" style="margin-top:24px">For planning and reference only. Verify against approved aircraft performance data and official sources before flight.</p>
 </main>
+
+<article class="tool-content">
+  <section class="content-section">
+    <h2>A modern E6B flight computer</h2>
+    <p>The <strong>E6B</strong> is the aviator's flight computer — for decades a circular slide rule carried in every flight bag. This is the same set of calculations, rebuilt for your phone: every figure recalculates the moment you change an input, so there's no winding a wheel or reading a cursor. Use it for flight planning, checkride prep, or a quick sanity check in the run-up. It's free, works offline once loaded, and needs no account.</p>
+    <p>Five functions are split across the tabs at the top of the page:</p>
+    <ul class="bullets">
+      <li><strong>Wind Triangle</strong> — enter true course, true airspeed and the wind, and read your required heading, wind correction angle, ground speed and head/cross components.</li>
+      <li><strong>Airspeed &amp; Density Altitude</strong> — from pressure altitude, outside air temperature and calibrated airspeed, get density altitude, true airspeed and the density ratio.</li>
+      <li><strong>Time · Speed · Distance</strong> — fix any two and solve for the third.</li>
+      <li><strong>Fuel</strong> — solve for fuel burned, endurance or burn rate, with a 45-minute reserve figure.</li>
+      <li><strong>Conversions</strong> — distance, speed, altitude, temperature and fuel volume/weight.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked example: wind triangle</h2>
+    <div class="worked">
+      <div class="we-label">TC 090° · TAS 120 kt · Wind 160° / 25 kt</div>
+      <p>Flying an easterly course of 090° at 120 knots true, with the wind from 160° at 25 knots, the computer returns:</p>
+      <div class="we-line"><span>Wind correction angle</span><b class="amber">11° right</b></div>
+      <div class="we-line"><span>Heading to fly</span><b>101°</b></div>
+      <div class="we-line"><span>Ground speed</span><b>109 kt</b></div>
+      <div class="we-line"><span>Headwind component</span><b>9 kt</b></div>
+    </div>
+    <p>Under the hood this is the wind triangle: <code>WCA = asin(WS·sin(WD−TC) / TAS)</code> for the correction angle, and <code>GS = TAS·cos(WCA) − WS·cos(WD−TC)</code> for ground speed — the same relationships the mechanical E6B solves graphically.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details open>
+        <summary>What is an E6B flight computer?</summary>
+        <div class="faq-a">An E6B is the aviator's flight computer, traditionally a circular slide rule, used to solve common flight-planning problems such as the wind triangle, true airspeed, density altitude, time–speed–distance and fuel burn.</div>
+      </details>
+      <details>
+        <summary>How is true airspeed calculated from calibrated airspeed?</summary>
+        <div class="faq-a">True airspeed is calibrated airspeed divided by the square root of the air density ratio. This tool derives the density ratio from pressure altitude and outside air temperature using the standard atmosphere model.</div>
+      </details>
+      <details>
+        <summary>Is this E6B calculator free?</summary>
+        <div class="faq-a">Yes. It runs entirely in your browser, works on mobile, requires no login, and is free to use for flight-planning reference.</div>
+      </details>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>More Pyxis aviation tools</h2>
+    <div class="related-grid">
+      <a class="related-card" href="great-circle-mapper.html">
+        <span class="rc-t">Great Circle Mapper</span>
+        <span class="rc-d">Plot great-circle routes and distances between airports.</span>
+        <span class="rc-go">Open →</span>
+      </a>
+      <a class="related-card" href="crosswind-calculator.html">
+        <span class="rc-t">Crosswind Calculator</span>
+        <span class="rc-d">Headwind, tailwind and crosswind components with a live compass.</span>
+        <span class="rc-go">Open →</span>
+      </a>
+    </div>
+  </section>
+</article>
 
 <script>
 (function () {

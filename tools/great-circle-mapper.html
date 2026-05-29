@@ -2,23 +2,23 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Great Circle Mapper — Free Flight Route &amp; Distance Map | Pyxis Tools</title>
 <meta name="description" content="Plot great-circle routes and distances between airports on a fast, mobile-first map. Multi-leg routes by IATA/ICAO code, distances in NM, km or miles, and initial bearings. Free, no login." />
 <meta name="keywords" content="great circle mapper, great circle distance, flight distance calculator, airport distance, route map, gcmap alternative, flight route planner, IATA ICAO distance" />
 <meta name="author" content="Pyxis International" />
 <meta name="robots" content="index, follow, max-image-preview:large" />
 <meta name="theme-color" content="#0c0d0f" />
-<link rel="canonical" href="https://pyxisint.com/tools/great-circle-mapper.html" />
+<link rel="canonical" href="https://www.pyxisint.com/tools/great-circle-mapper.html" />
 <link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
 
 <meta property="og:type" content="website" />
 <meta property="og:site_name" content="Pyxis International" />
 <meta property="og:locale" content="en_US" />
-<meta property="og:url" content="https://pyxisint.com/tools/great-circle-mapper.html" />
+<meta property="og:url" content="https://www.pyxisint.com/tools/great-circle-mapper.html" />
 <meta property="og:title" content="Great Circle Mapper — Free Flight Route &amp; Distance Map" />
 <meta property="og:description" content="Plot great-circle routes and distances between airports on a fast, mobile-first map. Multi-leg routes, NM/km/mi, initial bearings." />
-<meta property="og:image" content="https://pyxisint.com/assets/og/og-gcm.png" />
+<meta property="og:image" content="https://www.pyxisint.com/assets/og/og-gcm.png" />
 <meta property="og:image:width" content="1200" />
 <meta property="og:image:height" content="630" />
 <meta property="og:image:alt" content="Pyxis Great Circle Mapper" />
@@ -26,7 +26,7 @@
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:title" content="Great Circle Mapper — Free Flight Route &amp; Distance Map" />
 <meta name="twitter:description" content="Plot great-circle routes and distances between airports on a fast, mobile-first map." />
-<meta name="twitter:image" content="https://pyxisint.com/assets/og/og-gcm.png" />
+<meta name="twitter:image" content="https://www.pyxisint.com/assets/og/og-gcm.png" />
 
 <script type="application/ld+json">
 {
@@ -35,22 +35,22 @@
     {
       "@type": "WebApplication",
       "name": "Great Circle Mapper",
-      "url": "https://pyxisint.com/tools/great-circle-mapper.html",
+      "url": "https://www.pyxisint.com/tools/great-circle-mapper.html",
       "applicationCategory": "TravelApplication",
       "operatingSystem": "Web browser",
       "browserRequirements": "Requires JavaScript",
       "description": "Plot great-circle routes and distances between airports on a fast, mobile-first map, with multi-leg routes, distances in NM/km/mi, and initial bearings.",
-      "image": "https://pyxisint.com/assets/og/og-gcm.png",
+      "image": "https://www.pyxisint.com/assets/og/og-gcm.png",
       "isAccessibleForFree": true,
       "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
-      "publisher": { "@type": "Organization", "name": "Pyxis International", "url": "https://pyxisint.com/" }
+      "publisher": { "@type": "Organization", "name": "Pyxis International", "url": "https://www.pyxisint.com/" }
     },
     {
       "@type": "BreadcrumbList",
       "itemListElement": [
-        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyxisint.com/" },
-        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pyxisint.com/tools/" },
-        { "@type": "ListItem", "position": 3, "name": "Great Circle Mapper", "item": "https://pyxisint.com/tools/great-circle-mapper.html" }
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.pyxisint.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://www.pyxisint.com/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Great Circle Mapper", "item": "https://www.pyxisint.com/tools/great-circle-mapper.html" }
       ]
     },
     {
@@ -80,8 +80,8 @@
 <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="" />
 <link rel="stylesheet" href="tools.css" />
 <style>
-  html, body { height: 100%; overflow: hidden; }
-  .gcm { display: flex; flex-direction: column; height: 100vh; height: 100dvh; }
+  html, body { height: auto; }
+  .gcm { display: flex; flex-direction: column; }
 
   /* Controls bar */
   .gcm-controls {
@@ -137,7 +137,7 @@
   .gcm-units { margin-left: auto; }
 
   /* Stage + map */
-  .gcm-stage { position: relative; flex: 1; min-height: 0; }
+  .gcm-stage { position: relative; height: 66vh; min-height: 440px; }
   #map { position: absolute; inset: 0; background: var(--pyxis-bg); }
   .leaflet-container { background: #0c0d0f; font-family: var(--font-body); }
   .leaflet-control-attribution {
@@ -313,6 +313,73 @@
     </aside>
   </div>
 </div>
+
+<article class="tool-content">
+  <section class="content-section">
+    <h2>Great circle distances between airports</h2>
+    <p>The <strong>Pyxis Great Circle Mapper</strong> draws the shortest path between airports — the <strong>great circle route</strong> — and reports its distance and initial bearing. It's a fast, mobile-first alternative to the classic desktop mappers: type a route, read the numbers, share the map. Everything runs in your browser, with no login and nothing to install.</p>
+    <p>A great circle is the shortest path between two points on the surface of a sphere. Because the Earth is (very nearly) a sphere, the shortest distance between two airports follows a great circle — which is why long-haul routes look curved when drawn on a flat map. A flight from New York to Tokyo, for example, arcs up over the Arctic rather than running straight across on the projection.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>How to use the mapper</h2>
+    <ul class="bullets">
+      <li>Type airport codes separated by dashes — <code>JFK-LHR-DXB</code>. Both <strong>IATA</strong> (3-letter, e.g. <code>JFK</code>) and <strong>ICAO</strong> (4-letter, e.g. <code>KJFK</code>) codes work.</li>
+      <li>Add as many waypoints as you like. Each <strong>leg</strong> is drawn and measured separately, and the legs are summed into a total.</li>
+      <li>Separate independent routes with a comma — <code>SFO-NRT, LAX-SYD</code> — to compare two city pairs on one map.</li>
+      <li>Switch the readout between <strong>nautical miles, kilometres and statute miles</strong> at any time; the map and totals update instantly.</li>
+      <li>Each leg shows its <strong>initial bearing</strong> (the heading you'd depart on) — note that the bearing changes continuously along a great circle.</li>
+    </ul>
+  </section>
+
+  <section class="content-section">
+    <h2>Worked example: JFK to London Heathrow</h2>
+    <div class="worked">
+      <div class="we-label">JFK → LHR · Great circle</div>
+      <p>New York's John F. Kennedy (JFK) sits at roughly 40.6° N, 73.8° W; London Heathrow (LHR) at 51.5° N, 0.5° W. Plotting <code>JFK-LHR</code> returns:</p>
+      <div class="we-line"><span>Great circle distance</span><b class="amber">~3,000 NM</b></div>
+      <div class="we-line"><span>In kilometres</span><b>~5,555 km</b></div>
+      <div class="we-line"><span>In statute miles</span><b>~3,450 mi</b></div>
+      <div class="we-line"><span>Initial bearing out of JFK</span><b>~051°</b></div>
+    </div>
+    <p>The distance is computed with the <strong>haversine formula</strong> on a spherical Earth model, and the route line itself is interpolated point-by-point along the great circle so it bends realistically across the map — including a clean crossing of the antimeridian (the 180° line) on trans-Pacific routes.</p>
+  </section>
+
+  <section class="content-section">
+    <h2>Frequently asked questions</h2>
+    <div class="faq">
+      <details open>
+        <summary>What is a great circle route?</summary>
+        <div class="faq-a">A great circle is the shortest path between two points on the surface of a sphere. For flights, a great-circle route is the shortest distance between two airports, which is why long-haul routes appear curved on a flat map.</div>
+      </details>
+      <details>
+        <summary>How do I plot a multi-leg route?</summary>
+        <div class="faq-a">Enter airport codes separated by dashes, for example JFK-LHR-DXB. The mapper draws each leg, shows its distance and initial bearing, and totals the whole route.</div>
+      </details>
+      <details>
+        <summary>What units can I use for distance?</summary>
+        <div class="faq-a">You can switch between nautical miles, kilometres and statute miles. Distances are computed with the haversine formula on a spherical Earth model.</div>
+      </details>
+    </div>
+  </section>
+
+  <section class="content-section">
+    <h2>More Pyxis aviation tools</h2>
+    <div class="related-grid">
+      <a class="related-card" href="e6b-calculator.html">
+        <span class="rc-t">E6B Flight Computer</span>
+        <span class="rc-d">Wind triangle, true airspeed, density altitude, fuel and conversions.</span>
+        <span class="rc-go">Open →</span>
+      </a>
+      <a class="related-card" href="crosswind-calculator.html">
+        <span class="rc-t">Crosswind Calculator</span>
+        <span class="rc-d">Headwind, tailwind and crosswind components with a live compass.</span>
+        <span class="rc-go">Open →</span>
+      </a>
+    </div>
+    <p class="note" style="margin-top:20px">For planning and reference only. Always verify distances and routings against official sources before operational use.</p>
+  </section>
+</article>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo=" crossorigin=""></script>
 <script src="airports.js"></script>
