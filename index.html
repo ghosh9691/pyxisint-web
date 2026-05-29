@@ -3,14 +3,60 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Pyxis International — Engineering leadership for mission‑critical systems</title>
-<meta name="description" content="Fractional CTO and hands‑on consulting for aviation operations and enterprise software. Pyxis Aviate (Labs) — a modern airline operations platform in development." />
+<title>Pyxis International — Fractional CTO &amp; Aviation Software Consulting</title>
+<meta name="description" content="Fractional CTO leadership and hands-on consulting for aviation operations and mission-critical enterprise software. Plus free aviation tools: great circle mapper, E6B and crosswind calculator." />
+<meta name="keywords" content="fractional CTO, aviation software consulting, airline operations software, dispatch software, mission-critical systems, .NET consulting, aviation technology, Pyxis International" />
+<meta name="author" content="Pyxis International" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0c0d0f" />
+<link rel="canonical" href="https://pyxisint.com/" />
 <link rel="icon" type="image/svg+xml" href="assets/logo-mark.svg" />
+
+<!-- Open Graph / Facebook -->
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Pyxis International" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pyxisint.com/" />
+<meta property="og:title" content="Pyxis International — Fractional CTO &amp; Aviation Software Consulting" />
+<meta property="og:description" content="Fractional CTO leadership and consulting for aviation operations and mission-critical software — plus free aviation tools for pilots and dispatchers." />
+<meta property="og:image" content="https://pyxisint.com/assets/og/og-home.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Pyxis International — engineering for mission-critical systems" />
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Pyxis International — Fractional CTO &amp; Aviation Software Consulting" />
+<meta name="twitter:description" content="Fractional CTO leadership and consulting for aviation operations and mission-critical software — plus free aviation tools." />
+<meta name="twitter:image" content="https://pyxisint.com/assets/og/og-home.png" />
+
 <link rel="stylesheet" href="site.css" />
 
-<script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
-<script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Organization",
+      "@id": "https://pyxisint.com/#org",
+      "name": "Pyxis International",
+      "url": "https://pyxisint.com/",
+      "logo": "https://pyxisint.com/assets/logo-mark.svg",
+      "email": "info@pyxisint.com",
+      "description": "Fractional CTO leadership and consulting for aviation operations and mission-critical enterprise software.",
+      "areaServed": "Worldwide",
+      "address": { "@type": "PostalAddress", "addressRegion": "NY", "addressCountry": "US" }
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://pyxisint.com/#website",
+      "url": "https://pyxisint.com/",
+      "name": "Pyxis International",
+      "publisher": { "@id": "https://pyxisint.com/#org" }
+    }
+  ]
+}
+</script>
 </head>
 <body data-hero="radar" data-density="comfy" data-accent="amber">
 
@@ -26,6 +72,7 @@
       <a href="#engagements">Engagements</a>
       <a href="#advisory">Advisory</a>
       <a href="#aviate">Labs</a>
+      <a href="tools/index.html">Tools</a>
       <a href="#about">About</a>
     </nav>
     <div class="nav-meta">
@@ -532,9 +579,6 @@
   </div>
 </footer>
 
-<!-- Tweaks panel mount -->
-<div id="tweaks-root"></div>
-
 <!-- ============================ SCRIPTS ============================ -->
 <script>
 // Live Zulu clock in the nav
@@ -552,9 +596,6 @@
   setInterval(tick, 1000);
 })();
 </script>
-
-<script type="text/babel" src="tweaks-panel.jsx"></script>
-<script type="text/babel" src="tweaks.jsx"></script>
 
 </body>
 </html>

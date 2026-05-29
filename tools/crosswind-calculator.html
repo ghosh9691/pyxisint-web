@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Crosswind Calculator — Free Headwind, Tailwind &amp; Crosswind Components | Pyxis</title>
+<meta name="description" content="Free, mobile-first crosswind calculator. Enter runway and wind to read headwind, tailwind and crosswind components live, with a compass diagram and a crosswind-limit check. Gust support included." />
+<meta name="keywords" content="crosswind calculator, crosswind component, headwind calculator, tailwind calculator, runway wind component, crosswind limit, aviation wind calculator, gust crosswind" />
+<meta name="author" content="Pyxis International" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0c0d0f" />
+<link rel="canonical" href="https://pyxisint.com/tools/crosswind-calculator.html" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Pyxis International" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pyxisint.com/tools/crosswind-calculator.html" />
+<meta property="og:title" content="Crosswind Calculator — Free Headwind, Tailwind &amp; Crosswind Components" />
+<meta property="og:description" content="Enter runway and wind to read headwind, tailwind and crosswind components live, with a compass diagram and crosswind-limit check." />
+<meta property="og:image" content="https://pyxisint.com/assets/og/og-crosswind.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Pyxis Crosswind Calculator" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Crosswind Calculator — Free Headwind, Tailwind &amp; Crosswind Components" />
+<meta name="twitter:description" content="Enter runway and wind to read headwind, tailwind and crosswind components live, with a compass diagram." />
+<meta name="twitter:image" content="https://pyxisint.com/assets/og/og-crosswind.png" />
+
+<link rel="stylesheet" href="tools.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "Crosswind Calculator",
+      "url": "https://pyxisint.com/tools/crosswind-calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web browser",
+      "browserRequirements": "Requires JavaScript",
+      "description": "Compute headwind, tailwind and crosswind components from runway and wind, with a live compass diagram, gust support and a crosswind-limit check.",
+      "image": "https://pyxisint.com/assets/og/og-crosswind.png",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "Pyxis International", "url": "https://pyxisint.com/" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyxisint.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pyxisint.com/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "Crosswind Calculator", "item": "https://pyxisint.com/tools/crosswind-calculator.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "How do you calculate the crosswind component?",
+          "acceptedAnswer": { "@type": "Answer", "text": "The crosswind component equals the wind speed multiplied by the sine of the angle between the wind direction and the runway heading. The headwind or tailwind component uses the cosine of that angle." }
+        },
+        {
+          "@type": "Question",
+          "name": "How do I enter the runway?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Enter the runway designator from 01 to 36, which represents its magnetic heading in tens of degrees — runway 27 is a heading of 270 degrees. The compass diagram rotates to match." }
+        },
+        {
+          "@type": "Question",
+          "name": "Does it account for gusts and crosswind limits?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. You can enter a gust value to see the crosswind at the gust speed, and set a crosswind limit to get an at-a-glance within-limit, caution or exceeds indication." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  .xw-grid {
+    display: grid;
+    grid-template-columns: 360px 1fr;
+    gap: 18px;
+    align-items: start;
+  }
+  @media (max-width: 760px) { .xw-grid { grid-template-columns: 1fr; } }
+
+  .diagram-wrap {
+    background: var(--pyxis-surface);
+    border: 1px solid var(--pyxis-border);
+    border-radius: 14px;
+    padding: 22px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .diagram-wrap svg { width: 100%; max-width: 320px; height: auto; }
+  .compass-ring { fill: none; stroke: var(--pyxis-border-strong); stroke-width: 1.5; }
+  .compass-inner { fill: none; stroke: var(--pyxis-border); stroke-width: 1; }
+  .tick { stroke: var(--pyxis-border-strong); stroke-width: 1.5; }
+  .tick-major { stroke: var(--pyxis-text-tertiary); stroke-width: 2; }
+  .card-label { fill: var(--pyxis-text-tertiary); font-family: var(--font-mono); font-size: 11px; font-weight: 500; }
+  .rwy-strip { fill: var(--pyxis-surface-raised); stroke: var(--pyxis-border-strong); stroke-width: 1.5; }
+  .rwy-center { stroke: var(--pyxis-text-tertiary); stroke-width: 1.5; stroke-dasharray: 5 6; }
+  .rwy-num { fill: var(--pyxis-text-primary); font-family: var(--font-mono); font-size: 14px; font-weight: 600; }
+  .wind-arrow { stroke: var(--pyxis-amber); stroke-width: 3.5; stroke-linecap: round; }
+  .wind-head { fill: var(--pyxis-amber); }
+  .comp-x { stroke: var(--pyxis-blue); stroke-width: 2.5; stroke-dasharray: 4 4; }
+  .comp-h { stroke: var(--pyxis-green); stroke-width: 2.5; stroke-dasharray: 4 4; }
+  .center-dot { fill: var(--pyxis-text-secondary); }
+
+  .limit-badge {
+    display: inline-flex; align-items: center; gap: 7px;
+    font-family: var(--font-mono); font-size: 12px; font-weight: 600;
+    letter-spacing: 0.06em; text-transform: uppercase;
+    padding: 6px 12px; border-radius: 100px;
+  }
+  .limit-badge .dot { width: 7px; height: 7px; border-radius: 50%; }
+  .limit-badge.ok { background: var(--pyxis-green-dim); color: var(--pyxis-green); }
+  .limit-badge.ok .dot { background: var(--pyxis-green); }
+  .limit-badge.caution { background: var(--pyxis-amber-dim); color: var(--pyxis-amber); }
+  .limit-badge.caution .dot { background: var(--pyxis-amber); }
+  .limit-badge.exceed { background: var(--pyxis-red-dim); color: var(--pyxis-red); }
+  .limit-badge.exceed .dot { background: var(--pyxis-red); }
+  .diagram-cap { font-family: var(--font-mono); font-size: 11px; color: var(--pyxis-text-tertiary); margin-top: 14px; text-align: center; letter-spacing: 0.04em; }
+  .legend { display: flex; gap: 16px; justify-content: center; margin-top: 10px; flex-wrap: wrap; }
+  .legend span { display: inline-flex; align-items: center; gap: 6px; font-family: var(--font-mono); font-size: 10px; color: var(--pyxis-text-tertiary); letter-spacing: 0.04em; }
+  .legend i { width: 14px; height: 0; border-top: 3px solid; border-radius: 2px; display: inline-block; }
+</style>
+</head>
+<body>
+
+<header class="tool-topbar">
+  <a href="index.html" class="tb-back"><span class="arr" aria-hidden="true">←</span> Tools</a>
+  <div class="tb-brand">
+    <span class="star" aria-hidden="true">✦</span>
+    <span class="label">Crosswind<span> Calculator</span></span>
+  </div>
+  <div class="tb-tool"><span class="dot" aria-hidden="true"></span> XWC-03</div>
+</header>
+
+<main class="tool-wrap" data-screen-label="Crosswind Calculator">
+  <div class="tool-head">
+    <div class="tool-eyebrow">Crosswind Calculator</div>
+    <h1>Read the wind <b>before you line up</b>.</h1>
+    <p>Enter the runway and the reported wind. Headwind, tailwind and crosswind components update live — and the compass turns with them so you can see the geometry at a glance.</p>
+  </div>
+
+  <div class="xw-grid">
+    <!-- Diagram -->
+    <div class="diagram-wrap">
+      <svg viewBox="0 0 280 280" role="img" aria-label="Runway and wind compass diagram">
+        <circle class="compass-ring" cx="140" cy="140" r="120" />
+        <circle class="compass-inner" cx="140" cy="140" r="92" />
+        <g id="ticks"></g>
+        <text class="card-label" x="140" y="20" text-anchor="middle">N</text>
+        <text class="card-label" x="266" y="144" text-anchor="middle">E</text>
+        <text class="card-label" x="140" y="272" text-anchor="middle">S</text>
+        <text class="card-label" x="14" y="144" text-anchor="middle">W</text>
+        <!-- runway -->
+        <g id="rwy-grp">
+          <rect class="rwy-strip" x="125" y="48" width="30" height="184" rx="5" />
+          <line class="rwy-center" x1="140" y1="62" x2="140" y2="218" />
+          <text class="rwy-num" id="rwy-num-top" x="140" y="74" text-anchor="middle">27</text>
+          <text class="rwy-num" id="rwy-num-bot" x="140" y="214" text-anchor="middle">09</text>
+        </g>
+        <!-- component vectors -->
+        <line id="vec-h" class="comp-h" x1="140" y1="140" x2="140" y2="140" />
+        <line id="vec-x" class="comp-x" x1="140" y1="140" x2="140" y2="140" />
+        <!-- wind arrow -->
+        <g id="wind">
+          <line class="wind-arrow" id="wind-line" x1="140" y1="20" x2="140" y2="120" />
+          <polygon class="wind-head" id="wind-head" points="140,128 132,112 148,112" />
+        </g>
+        <circle class="center-dot" cx="140" cy="140" r="3.5" />
+      </svg>
+      <div class="legend">
+        <span><i style="border-color:var(--pyxis-amber)"></i> Wind</span>
+        <span><i style="border-color:var(--pyxis-green)"></i> Head/Tail</span>
+        <span><i style="border-color:var(--pyxis-blue)"></i> Crosswind</span>
+      </div>
+      <div class="diagram-cap" id="cap">RWY 27 · WIND 160 / 25 KT</div>
+    </div>
+
+    <!-- Controls + readouts -->
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-head"><span class="dot"></span> Inputs</div>
+        <div class="panel-body">
+          <div class="field-grid two">
+            <div class="field"><label>Runway <span class="unit">01–36</span></label><input class="input" id="rwy" type="number" inputmode="numeric" min="1" max="36" value="27" /></div>
+            <div class="field"><label>Wind from <span class="unit">° mag</span></label><input class="input" id="wd" type="number" inputmode="decimal" value="160" /></div>
+            <div class="field"><label>Wind speed <span class="unit">kt</span></label><input class="input" id="ws" type="number" inputmode="decimal" value="25" /></div>
+            <div class="field"><label>Gust <span class="unit">kt · optional</span></label><input class="input" id="gust" type="number" inputmode="decimal" placeholder="—" /></div>
+          </div>
+          <div class="row-between" style="margin-top:16px">
+            <div class="field" style="flex:1"><label>Crosswind limit <span class="unit">kt · optional</span></label><input class="input" id="limit" type="number" inputmode="decimal" placeholder="e.g. 20" style="max-width:160px" /></div>
+            <div id="limit-badge" class="limit-badge ok" style="display:none"><span class="dot"></span><span id="limit-text">Within limit</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="panel">
+        <div class="panel-head"><span class="dot"></span> Components</div>
+        <div class="panel-body">
+          <div class="readout-grid two">
+            <div class="readout blue"><div class="rl">Crosswind</div><div class="rv" id="r_xw">—</div><div class="rd" id="r_xwd">—</div></div>
+            <div class="readout green"><div class="rl" id="r_hwl">Headwind</div><div class="rv" id="r_hw">—</div><div class="rd" id="r_hwd">—</div></div>
+          </div>
+          <div class="readout-grid two" id="gust-row" style="margin-top:1px; display:none">
+            <div class="readout"><div class="rl">Crosswind in gust</div><div class="rv" id="r_gxw">—</div><div class="rd">at gust speed</div></div>
+            <div class="readout"><div class="rl">Head/Tail in gust</div><div class="rv" id="r_ghw">—</div><div class="rd">at gust speed</div></div>
+          </div>
+          <p class="note formula" style="margin-top:16px"><code>Crosswind = wind × sin(θ)</code> &nbsp; <code>Head/Tail = wind × cos(θ)</code> &nbsp;·&nbsp; θ = angle between wind and runway</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <p class="note" style="margin-top:24px">For planning and reference only. Always apply your aircraft's demonstrated crosswind component and company limits. Winds are treated as the values you enter (magnetic or true — be consistent with the runway).</p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var rad = function (d) { return d * Math.PI / 180; };
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; };
+  var raw = function (id) { return document.getElementById(id).value.trim(); };
+  var CX = 140, CY = 140;
+
+  // Build compass ticks every 30°
+  (function () {
+    var g = document.getElementById("ticks");
+    for (var a = 0; a < 360; a += 10) {
+      var major = (a % 90 === 0);
+      var r1 = 120, r2 = major ? 106 : 113;
+      var x1 = CX + r1 * Math.sin(rad(a)), y1 = CY - r1 * Math.cos(rad(a));
+      var x2 = CX + r2 * Math.sin(rad(a)), y2 = CY - r2 * Math.cos(rad(a));
+      var ln = document.createElementNS("http://www.w3.org/2000/svg", "line");
+      ln.setAttribute("x1", x1.toFixed(1)); ln.setAttribute("y1", y1.toFixed(1));
+      ln.setAttribute("x2", x2.toFixed(1)); ln.setAttribute("y2", y2.toFixed(1));
+      ln.setAttribute("class", major ? "tick-major" : "tick");
+      g.appendChild(ln);
+    }
+  })();
+
+  function pad2(n) { return (n < 10 ? "0" : "") + n; }
+
+  function calc() {
+    var rwyDes = Math.round(num("rwy"));
+    if (rwyDes < 1) rwyDes = 1; if (rwyDes > 36) rwyDes = 36;
+    var rwyHdg = rwyDes * 10;
+    var wd = num("wd"), ws = num("ws");
+    var gustVal = raw("gust") ? num("gust") : null;
+
+    var theta = wd - rwyHdg; // wind relative to runway
+    var cross = ws * Math.sin(rad(theta));   // + from right
+    var head = ws * Math.cos(rad(theta));    // + headwind
+
+    // Readouts
+    document.getElementById("r_xw").innerHTML = Math.abs(cross).toFixed(1) + ' <span class="u">kt</span>';
+    document.getElementById("r_xwd").textContent = Math.abs(cross) < 0.05 ? "no crosswind" : "from the " + (cross >= 0 ? "right" : "left");
+    document.getElementById("r_hwl").textContent = head >= 0 ? "Headwind" : "Tailwind";
+    var hwEl = document.getElementById("r_hw");
+    hwEl.innerHTML = Math.abs(head).toFixed(1) + ' <span class="u">kt</span>';
+    var hwReadout = hwEl.closest(".readout");
+    hwReadout.classList.toggle("green", head >= 0);
+    hwReadout.classList.toggle("red", head < 0);
+    document.getElementById("r_hwd").textContent = head >= 0 ? "down the runway" : "from behind — caution";
+
+    // Gust components
+    var gustRow = document.getElementById("gust-row");
+    if (gustVal !== null && gustVal > 0) {
+      gustRow.style.display = "grid";
+      document.getElementById("r_gxw").innerHTML = Math.abs(gustVal * Math.sin(rad(theta))).toFixed(1) + ' <span class="u">kt ' + (cross >= 0 ? "R" : "L") + '</span>';
+      var gh = gustVal * Math.cos(rad(theta));
+      document.getElementById("r_ghw").innerHTML = Math.abs(gh).toFixed(1) + ' <span class="u">kt ' + (gh >= 0 ? "HW" : "TW") + '</span>';
+    } else {
+      gustRow.style.display = "none";
+    }
+
+    // Limit check (uses gust crosswind if a gust is entered)
+    var limit = raw("limit") ? num("limit") : null;
+    var badge = document.getElementById("limit-badge");
+    var checkX = (gustVal !== null && gustVal > 0) ? Math.abs(gustVal * Math.sin(rad(theta))) : Math.abs(cross);
+    if (limit !== null && limit > 0) {
+      badge.style.display = "inline-flex";
+      badge.classList.remove("ok", "caution", "exceed");
+      var txt = document.getElementById("limit-text");
+      if (checkX > limit) { badge.classList.add("exceed"); txt.textContent = "Exceeds " + limit + " kt"; }
+      else if (checkX > limit * 0.85) { badge.classList.add("caution"); txt.textContent = "Near " + limit + " kt limit"; }
+      else { badge.classList.add("ok"); txt.textContent = "Within " + limit + " kt"; }
+    } else {
+      badge.style.display = "none";
+    }
+
+    // ---- Diagram ----
+    // Runway rotated to its heading
+    document.getElementById("rwy-num-top").textContent = pad2(rwyDes);
+    document.getElementById("rwy-num-bot").textContent = pad2(((rwyDes + 18 - 1) % 36) + 1);
+    document.getElementById("rwy-grp").setAttribute("transform", "rotate(" + rwyHdg + " " + CX + " " + CY + ")");
+
+    // Wind arrow: source at bearing wd, pointing toward centre
+    var sx = CX + 120 * Math.sin(rad(wd)), sy = CY - 120 * Math.cos(rad(wd));
+    var ex = CX + 30 * Math.sin(rad(wd)), ey = CY - 30 * Math.cos(rad(wd));
+    var wl = document.getElementById("wind-line");
+    wl.setAttribute("x1", sx.toFixed(1)); wl.setAttribute("y1", sy.toFixed(1));
+    wl.setAttribute("x2", ex.toFixed(1)); wl.setAttribute("y2", ey.toFixed(1));
+    // arrowhead at the centre end pointing inward (direction = wd + 180)
+    var tip = { x: CX + 22 * Math.sin(rad(wd)), y: CY - 22 * Math.cos(rad(wd)) };
+    var dir = wd + 180; // pointing toward centre
+    var back = 16, half = 7;
+    var bx = tip.x + back * Math.sin(rad(dir + 180)), by = tip.y - back * Math.cos(rad(dir + 180));
+    var lx = bx + half * Math.sin(rad(dir + 90)), ly = by - half * Math.cos(rad(dir + 90));
+    var rx = bx + half * Math.sin(rad(dir - 90)), ry = by - half * Math.cos(rad(dir - 90));
+    document.getElementById("wind-head").setAttribute("points",
+      tip.x.toFixed(1) + "," + tip.y.toFixed(1) + " " + lx.toFixed(1) + "," + ly.toFixed(1) + " " + rx.toFixed(1) + "," + ry.toFixed(1));
+
+    // Component vectors along/perp to runway, scaled
+    var scale = 88 / Math.max(ws, 1);
+    if (ws > 0) {
+      // headwind component along runway axis (toward landing direction = runway heading)
+      var hLen = head * scale;
+      var hx = CX + hLen * Math.sin(rad(rwyHdg)), hy = CY - hLen * Math.cos(rad(rwyHdg));
+      var vh = document.getElementById("vec-h");
+      vh.setAttribute("x2", hx.toFixed(1)); vh.setAttribute("y2", hy.toFixed(1));
+      vh.setAttribute("x1", CX); vh.setAttribute("y1", CY);
+      // crosswind component perpendicular (to the right of runway = rwyHdg + 90)
+      var xLen = cross * scale;
+      var xx = CX + xLen * Math.sin(rad(rwyHdg + 90)), xy = CY - xLen * Math.cos(rad(rwyHdg + 90));
+      var vx = document.getElementById("vec-x");
+      vx.setAttribute("x2", xx.toFixed(1)); vx.setAttribute("y2", xy.toFixed(1));
+      vx.setAttribute("x1", CX); vx.setAttribute("y1", CY);
+    }
+
+    // Caption
+    document.getElementById("cap").textContent =
+      "RWY " + pad2(rwyDes) + " · WIND " + pad2(Math.round(wd) % 360) + " / " + Math.round(ws) +
+      (gustVal ? "G" + Math.round(gustVal) : "") + " KT";
+  }
+
+  ["rwy","wd","ws","gust","limit"].forEach(function (id) {
+    document.getElementById(id).addEventListener("input", calc);
+  });
+  calc();
+})();
+</script>
+</body>
+</html>
