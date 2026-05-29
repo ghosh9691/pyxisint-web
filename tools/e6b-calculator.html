@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>E6B Flight Computer Online — Free Wind, TAS &amp; Density Altitude | Pyxis</title>
+<meta name="description" content="A free, modern, mobile-first E6B flight computer. Solve the wind triangle, true airspeed, density altitude, time–speed–distance, fuel burn, and aviation unit conversions — calculates live as you type." />
+<meta name="keywords" content="E6B calculator, E6B online, flight computer, wind triangle calculator, true airspeed calculator, density altitude calculator, fuel planning, aviation unit converter, electronic E6B" />
+<meta name="author" content="Pyxis International" />
+<meta name="robots" content="index, follow, max-image-preview:large" />
+<meta name="theme-color" content="#0c0d0f" />
+<link rel="canonical" href="https://pyxisint.com/tools/e6b-calculator.html" />
+<link rel="icon" type="image/svg+xml" href="../assets/logo-mark.svg" />
+
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Pyxis International" />
+<meta property="og:locale" content="en_US" />
+<meta property="og:url" content="https://pyxisint.com/tools/e6b-calculator.html" />
+<meta property="og:title" content="E6B Flight Computer Online — Free Wind, TAS &amp; Density Altitude" />
+<meta property="og:description" content="Free, modern E6B flight computer: wind triangle, true airspeed, density altitude, time–speed–distance, fuel and conversions. Calculates live." />
+<meta property="og:image" content="https://pyxisint.com/assets/og/og-e6b.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Pyxis E6B Flight Computer" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="E6B Flight Computer Online — Free Wind, TAS &amp; Density Altitude" />
+<meta name="twitter:description" content="Free, modern E6B flight computer: wind triangle, TAS, density altitude, fuel and conversions." />
+<meta name="twitter:image" content="https://pyxisint.com/assets/og/og-e6b.png" />
+
+<link rel="stylesheet" href="tools.css" />
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebApplication",
+      "name": "E6B Flight Computer",
+      "url": "https://pyxisint.com/tools/e6b-calculator.html",
+      "applicationCategory": "UtilitiesApplication",
+      "operatingSystem": "Web browser",
+      "browserRequirements": "Requires JavaScript",
+      "description": "A modern, mobile-first E6B flight computer for the wind triangle, true airspeed, density altitude, time–speed–distance, fuel planning and aviation unit conversions.",
+      "image": "https://pyxisint.com/assets/og/og-e6b.png",
+      "isAccessibleForFree": true,
+      "offers": { "@type": "Offer", "price": "0", "priceCurrency": "USD" },
+      "publisher": { "@type": "Organization", "name": "Pyxis International", "url": "https://pyxisint.com/" }
+    },
+    {
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://pyxisint.com/" },
+        { "@type": "ListItem", "position": 2, "name": "Tools", "item": "https://pyxisint.com/tools/" },
+        { "@type": "ListItem", "position": 3, "name": "E6B Flight Computer", "item": "https://pyxisint.com/tools/e6b-calculator.html" }
+      ]
+    },
+    {
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "What is an E6B flight computer?",
+          "acceptedAnswer": { "@type": "Answer", "text": "An E6B is the aviator's flight computer, traditionally a circular slide rule, used to solve common flight-planning problems such as the wind triangle, true airspeed, density altitude, time–speed–distance and fuel burn." }
+        },
+        {
+          "@type": "Question",
+          "name": "How is true airspeed calculated from calibrated airspeed?",
+          "acceptedAnswer": { "@type": "Answer", "text": "True airspeed is calibrated airspeed divided by the square root of the air density ratio. This tool derives the density ratio from pressure altitude and outside air temperature using the standard atmosphere model." }
+        },
+        {
+          "@type": "Question",
+          "name": "Is this E6B calculator free?",
+          "acceptedAnswer": { "@type": "Answer", "text": "Yes. It runs entirely in your browser, works on mobile, requires no login, and is free to use for flight-planning reference." }
+        }
+      ]
+    }
+  ]
+}
+</script>
+<style>
+  .tabs {
+    display: flex;
+    gap: 4px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    padding-bottom: 4px;
+    margin-bottom: 22px;
+    scrollbar-width: none;
+  }
+  .tabs::-webkit-scrollbar { display: none; }
+  .tab {
+    flex-shrink: 0;
+    background: var(--pyxis-surface);
+    border: 1px solid var(--pyxis-border);
+    color: var(--pyxis-text-secondary);
+    padding: 9px 16px;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: all var(--dur-base) var(--ease-out);
+  }
+  .tab:hover { color: var(--pyxis-text-primary); border-color: var(--pyxis-border-strong); }
+  .tab.active {
+    background: var(--pyxis-amber-glow);
+    border-color: rgba(232,168,50,0.35);
+    color: var(--pyxis-amber);
+    font-weight: 600;
+  }
+  .e6b-panel { display: none; }
+  .e6b-panel.active { display: block; }
+  .panel-body + .panel-body { border-top: 1px solid var(--pyxis-border); }
+  .solve-row { margin-bottom: 16px; display: flex; align-items: center; gap: 12px; flex-wrap: wrap; }
+  .solve-row .lbl { font-size: 10px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; color: var(--pyxis-text-tertiary); }
+  .field input[disabled] { opacity: 0.4; }
+  .conv-out {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1px;
+    background: var(--pyxis-border);
+    border: 1px solid var(--pyxis-border);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 16px;
+  }
+  @media (max-width: 480px) { .conv-out { grid-template-columns: 1fr; } }
+  .conv-cell { background: var(--pyxis-surface); padding: 14px 16px; }
+  .conv-cell .cl { font-size: 9.5px; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase; color: var(--pyxis-text-tertiary); }
+  .conv-cell .cv { font-family: var(--font-instrument); font-size: 22px; color: var(--pyxis-text-primary); margin-top: 5px; font-variant-numeric: tabular-nums; }
+  .conv-cell .cv .cu { font-size: 12px; color: var(--pyxis-text-secondary); margin-left: 4px; font-family: var(--font-mono); }
+  .formula { margin-top: 16px; }
+</style>
+</head>
+<body>
+
+<header class="tool-topbar">
+  <a href="index.html" class="tb-back"><span class="arr" aria-hidden="true">←</span> Tools</a>
+  <div class="tb-brand">
+    <span class="star" aria-hidden="true">✦</span>
+    <span class="label">E6B<span> Computer</span></span>
+  </div>
+  <div class="tb-tool"><span class="dot" aria-hidden="true"></span> E6B-02</div>
+</header>
+
+<main class="tool-wrap" data-screen-label="E6B Flight Computer">
+  <div class="tool-head">
+    <div class="tool-eyebrow">E6B Flight Computer</div>
+    <h1>The aviator's slide rule, <b>without the slide rule</b>.</h1>
+    <p>Every figure recalculates as you type. Wind triangle, true airspeed and density altitude, time–speed–distance, fuel burn, and the unit conversions you reach for in the run-up.</p>
+  </div>
+
+  <nav class="tabs" id="tabs" aria-label="Calculator functions">
+    <button class="tab active" data-tab="wind">Wind Triangle</button>
+    <button class="tab" data-tab="tas">Airspeed &amp; DA</button>
+    <button class="tab" data-tab="tsd">Time · Speed · Dist</button>
+    <button class="tab" data-tab="fuel">Fuel</button>
+    <button class="tab" data-tab="conv">Conversions</button>
+  </nav>
+
+  <!-- ===== WIND TRIANGLE ===== -->
+  <section class="e6b-panel active" data-panel="wind">
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-head"><span class="dot"></span> Inputs <span class="meta">Course · Airspeed · Wind</span></div>
+        <div class="panel-body">
+          <div class="field-grid two">
+            <div class="field"><label>True course <span class="unit">° true</span></label><input class="input" id="w_tc" type="number" inputmode="decimal" value="90" /></div>
+            <div class="field"><label>True airspeed <span class="unit">kt</span></label><input class="input" id="w_tas" type="number" inputmode="decimal" value="120" /></div>
+            <div class="field"><label>Wind from <span class="unit">° true</span></label><input class="input" id="w_wd" type="number" inputmode="decimal" value="160" /></div>
+            <div class="field"><label>Wind speed <span class="unit">kt</span></label><input class="input" id="w_ws" type="number" inputmode="decimal" value="25" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><span class="dot"></span> Solution</div>
+        <div class="panel-body">
+          <div class="readout-grid three">
+            <div class="readout accent"><div class="rl">Heading</div><div class="rv" id="w_hdg">—</div><div class="rd" id="w_wca">—</div></div>
+            <div class="readout green"><div class="rl">Ground speed</div><div class="rv" id="w_gs">—</div><div class="rd" id="w_gsd">—</div></div>
+            <div class="readout"><div class="rl">Cross / Head wind</div><div class="rv" id="w_xw">—</div><div class="rd" id="w_hw">—</div></div>
+          </div>
+          <p class="note formula"><code>WCA = asin(WS·sin(WD−TC) / TAS)</code> &nbsp; <code>GS = TAS·cos(WCA) − WS·cos(WD−TC)</code></p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== AIRSPEED & DENSITY ALTITUDE ===== -->
+  <section class="e6b-panel" data-panel="tas">
+    <div class="stack">
+      <div class="panel">
+        <div class="panel-head"><span class="dot"></span> Inputs <span class="meta">Pressure alt · OAT · CAS</span></div>
+        <div class="panel-body">
+          <div class="field-grid three">
+            <div class="field"><label>Pressure altitude <span class="unit">ft</span></label><input class="input" id="t_pa" type="number" inputmode="decimal" value="5500" /></div>
+            <div class="field"><label>OAT <span class="unit">°C</span></label><input class="input" id="t_oat" type="number" inputmode="decimal" value="15" /></div>
+            <div class="field"><label>Calibrated airspeed <span class="unit">kt</span></label><input class="input" id="t_cas" type="number" inputmode="decimal" value="110" /></div>
+          </div>
+        </div>
+      </div>
+      <div class="panel">
+        <div class="panel-head"><span class="dot"></span> Solution</div>
+        <div class="panel-body">
+          <div class="readout-grid three">
+            <div class="readout accent"><div class="rl">Density altitude</div><div class="rv" id="t_da">—</div><div class="rd" id="t_isadev">—</div></div>
+            <div class="readout green"><div class="rl">True airspeed</div><div class="rv" id="t_tas">—</div><div class="rd" id="t_tasd">—</div></div>
+            <div class="readout"><div class="rl">Density ratio σ</div><div class="rv" id="t_sigma">—</div><div class="rd">vs ISA sea level</div></div>
+          </div>
+          <p class="note formula"><code>DA = PA + 118.8·(OAT − ISA)</code> &nbsp; <code>TAS = CAS / √σ</code> &nbsp;·&nbsp; ISA lapse 1.98 °C / 1000 ft</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== TIME SPEED DISTANCE ===== -->
+  <section class="e6b-panel" data-panel="tsd">
+    <div class="panel">
+      <div class="panel-head"><span class="dot"></span> Time · Speed · Distance</div>
+      <div class="panel-body">
+        <div class="solve-row">
+          <span class="lbl">Solve for</span>
+          <div class="seg" id="tsd_solve">
+            <button data-s="time" class="active">Time</button>
+            <button data-s="dist">Distance</button>
+            <button data-s="gs">Ground speed</button>
+          </div>
+        </div>
+        <div class="field-grid three">
+          <div class="field"><label>Ground speed <span class="unit">kt</span></label><input class="input" id="d_gs" type="number" inputmode="decimal" value="120" /></div>
+          <div class="field"><label>Distance <span class="unit">NM</span></label><input class="input" id="d_dist" type="number" inputmode="decimal" value="240" /></div>
+          <div class="field"><label>Time <span class="unit">min</span></label><input class="input" id="d_time" type="number" inputmode="decimal" value="120" disabled /></div>
+        </div>
+        <div class="readout-grid two" style="margin-top:18px">
+          <div class="readout accent"><div class="rl" id="d_outl">Time</div><div class="rv" id="d_out">—</div><div class="rd" id="d_outd">—</div></div>
+          <div class="readout"><div class="rl">Per 10 NM</div><div class="rv" id="d_per">—</div><div class="rd">at this ground speed</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== FUEL ===== -->
+  <section class="e6b-panel" data-panel="fuel">
+    <div class="panel">
+      <div class="panel-head"><span class="dot"></span> Fuel Planning</div>
+      <div class="panel-body">
+        <div class="solve-row">
+          <span class="lbl">Solve for</span>
+          <div class="seg" id="fuel_solve">
+            <button data-s="burn" class="active">Fuel burned</button>
+            <button data-s="endur">Endurance</button>
+            <button data-s="rate">Burn rate</button>
+          </div>
+        </div>
+        <div class="field-grid three">
+          <div class="field"><label>Burn rate <span class="unit">/ hr</span></label><input class="input" id="f_rate" type="number" inputmode="decimal" value="9.5" /></div>
+          <div class="field"><label>Time <span class="unit">min</span></label><input class="input" id="f_time" type="number" inputmode="decimal" value="120" /></div>
+          <div class="field"><label>Fuel quantity <span class="unit">units</span></label><input class="input" id="f_qty" type="number" inputmode="decimal" value="19" disabled /></div>
+        </div>
+        <div class="readout-grid two" style="margin-top:18px">
+          <div class="readout accent"><div class="rl" id="f_outl">Fuel burned</div><div class="rv" id="f_out">—</div><div class="rd" id="f_outd">—</div></div>
+          <div class="readout"><div class="rl">With 45-min reserve</div><div class="rv" id="f_res">—</div><div class="rd">total required</div></div>
+        </div>
+        <p class="note formula">Units are whatever you fly in — gallons, litres, or pounds. Reserve assumes 45 min at the entered burn rate.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===== CONVERSIONS ===== -->
+  <section class="e6b-panel" data-panel="conv">
+    <div class="panel">
+      <div class="panel-head"><span class="dot"></span> Conversions</div>
+      <div class="panel-body">
+        <div class="solve-row">
+          <span class="lbl">Quantity</span>
+          <div class="seg" id="conv_kind" style="flex-wrap:wrap">
+            <button data-k="dist" class="active">Distance</button>
+            <button data-k="speed">Speed</button>
+            <button data-k="alt">Altitude</button>
+            <button data-k="temp">Temp</button>
+            <button data-k="fuel">Fuel</button>
+          </div>
+        </div>
+        <div class="field-grid two">
+          <div class="field"><label>Value</label><input class="input" id="c_val" type="number" inputmode="decimal" value="100" /></div>
+          <div class="field"><label>From unit</label><select class="input" id="c_unit"></select></div>
+        </div>
+        <div class="conv-out" id="c_out"></div>
+      </div>
+    </div>
+  </section>
+
+  <p class="note" style="margin-top:24px">For planning and reference only. Verify against approved aircraft performance data and official sources before flight.</p>
+</main>
+
+<script>
+(function () {
+  "use strict";
+  var rad = function (d) { return d * Math.PI / 180; };
+  var deg = function (r) { return r * 180 / Math.PI; };
+  var num = function (id) { var v = parseFloat(document.getElementById(id).value); return isNaN(v) ? 0 : v; };
+  var set = function (id, html) { document.getElementById(id).innerHTML = html; };
+  var V = function (val, unit) { return val + (unit ? ' <span class="u">' + unit + "</span>" : ""); };
+
+  // ---- Tabs ----
+  var tabs = document.getElementById("tabs");
+  Array.prototype.forEach.call(tabs.querySelectorAll(".tab"), function (t) {
+    t.addEventListener("click", function () {
+      Array.prototype.forEach.call(tabs.querySelectorAll(".tab"), function (x) { x.classList.remove("active"); });
+      t.classList.add("active");
+      var name = t.getAttribute("data-tab");
+      Array.prototype.forEach.call(document.querySelectorAll(".e6b-panel"), function (p) {
+        p.classList.toggle("active", p.getAttribute("data-panel") === name);
+      });
+      localStorage.setItem("e6b_tab", name);
+    });
+  });
+
+  // ===== Wind triangle =====
+  function calcWind() {
+    var tc = num("w_tc"), tas = num("w_tas"), wd = num("w_wd"), ws = num("w_ws");
+    if (tas <= 0) { set("w_hdg", "—"); set("w_gs", "—"); set("w_xw", "—"); set("w_wca", "TAS required"); set("w_gsd",""); set("w_hw",""); return; }
+    var ang = rad(wd - tc);
+    var sinWca = Math.max(-1, Math.min(1, (ws / tas) * Math.sin(ang)));
+    var wca = deg(Math.asin(sinWca));
+    var th = (tc + wca + 360) % 360;
+    var gs = tas * Math.cos(rad(wca)) - ws * Math.cos(ang);
+    var head = ws * Math.cos(ang);   // + = headwind
+    var cross = ws * Math.sin(ang);  // + = from right
+    set("w_hdg", V(Math.round(th), "°"));
+    set("w_wca", (Math.abs(wca) < 0.5 ? "no correction" : Math.abs(wca).toFixed(1) + "° " + (wca > 0 ? "right" : "left")));
+    set("w_gs", V(Math.round(gs), "kt"));
+    set("w_gsd", (gs - tas >= 0 ? "+" : "") + Math.round(gs - tas) + " kt vs TAS");
+    set("w_xw", V(Math.abs(cross).toFixed(0), "kt"));
+    set("w_xw", Math.abs(cross).toFixed(0) + ' <span class="u">kt ' + (cross >= 0 ? "R" : "L") + "</span>");
+    set("w_hw", (head >= 0 ? "Headwind " : "Tailwind ") + Math.abs(head).toFixed(0) + " kt");
+  }
+  ["w_tc","w_tas","w_wd","w_ws"].forEach(function (id) { document.getElementById(id).addEventListener("input", calcWind); });
+
+  // ===== Airspeed & Density altitude =====
+  function calcTas() {
+    var pa = num("t_pa"), oat = num("t_oat"), cas = num("t_cas");
+    var isa = 15 - 1.98 * (pa / 1000);
+    var da = pa + 118.8 * (oat - isa);
+    // density ratio from density altitude (troposphere model)
+    var sigma = Math.pow(1 - 6.8755856e-6 * da, 4.2558797);
+    if (!(sigma > 0)) sigma = 0.0001;
+    var tas = cas / Math.sqrt(sigma);
+    set("t_da", V(Math.round(da).toLocaleString(), "ft"));
+    set("t_isadev", "ISA " + (oat - isa >= 0 ? "+" : "") + (oat - isa).toFixed(1) + " °C");
+    set("t_tas", V(Math.round(tas), "kt"));
+    set("t_tasd", (tas - cas >= 0 ? "+" : "") + Math.round(tas - cas) + " kt vs CAS");
+    set("t_sigma", sigma.toFixed(3));
+  }
+  ["t_pa","t_oat","t_cas"].forEach(function (id) { document.getElementById(id).addEventListener("input", calcTas); });
+
+  // ===== Time Speed Distance =====
+  var tsdSolve = "time";
+  function calcTsd() {
+    var gsEl = document.getElementById("d_gs"), distEl = document.getElementById("d_dist"), timeEl = document.getElementById("d_time");
+    gsEl.disabled = (tsdSolve === "gs");
+    distEl.disabled = (tsdSolve === "dist");
+    timeEl.disabled = (tsdSolve === "time");
+    var gs = num("d_gs"), dist = num("d_dist"), time = num("d_time"); // time in min
+    var out, label, detail, per = "—";
+    if (tsdSolve === "time") {
+      var t = gs > 0 ? (dist / gs) * 60 : 0;
+      timeEl.value = t ? t.toFixed(1) : "";
+      var hh = Math.floor(t / 60), mm = Math.round(t % 60);
+      out = V(t.toFixed(1), "min"); label = "Time"; detail = hh + "h " + (mm < 10 ? "0" : "") + mm + "m";
+    } else if (tsdSolve === "dist") {
+      var d = gs * (time / 60);
+      distEl.value = d ? d.toFixed(1) : "";
+      out = V(d.toFixed(1), "NM"); label = "Distance"; detail = (d * 1.852).toFixed(0) + " km";
+    } else {
+      var s = time > 0 ? dist / (time / 60) : 0;
+      gsEl.value = s ? s.toFixed(1) : "";
+      out = V(s.toFixed(1), "kt"); label = "Ground speed"; detail = (s * 1.150779).toFixed(0) + " mph";
+    }
+    if (gs > 0) per = ((10 / gs) * 60).toFixed(1) + ' <span class="u">min</span>';
+    set("d_out", out); set("d_outl", label); set("d_outd", detail); set("d_per", per);
+  }
+  (function () {
+    var seg = document.getElementById("tsd_solve");
+    Array.prototype.forEach.call(seg.querySelectorAll("button"), function (b) {
+      b.addEventListener("click", function () {
+        Array.prototype.forEach.call(seg.querySelectorAll("button"), function (x) { x.classList.remove("active"); });
+        b.classList.add("active"); tsdSolve = b.getAttribute("data-s"); calcTsd();
+      });
+    });
+  })();
+  ["d_gs","d_dist","d_time"].forEach(function (id) { document.getElementById(id).addEventListener("input", calcTsd); });
+
+  // ===== Fuel =====
+  var fuelSolve = "burn";
+  function calcFuel() {
+    var rateEl = document.getElementById("f_rate"), timeEl = document.getElementById("f_time"), qtyEl = document.getElementById("f_qty");
+    rateEl.disabled = (fuelSolve === "rate");
+    timeEl.disabled = (fuelSolve === "endur");
+    qtyEl.disabled = (fuelSolve === "burn");
+    var rate = num("f_rate"), time = num("f_time"), qty = num("f_qty");
+    var out, label, detail;
+    if (fuelSolve === "burn") {
+      var q = rate * (time / 60); qtyEl.value = q ? q.toFixed(1) : "";
+      out = V(q.toFixed(1), "units"); label = "Fuel burned"; detail = "over " + (time).toFixed(0) + " min";
+    } else if (fuelSolve === "endur") {
+      var t = rate > 0 ? (qty / rate) * 60 : 0; timeEl.value = t ? t.toFixed(0) : "";
+      var hh = Math.floor(t / 60), mm = Math.round(t % 60);
+      out = V(t.toFixed(0), "min"); label = "Endurance"; detail = hh + "h " + (mm < 10 ? "0" : "") + mm + "m";
+    } else {
+      var r = time > 0 ? qty / (time / 60) : 0; rateEl.value = r ? r.toFixed(2) : "";
+      out = V(r.toFixed(2), "/hr"); label = "Burn rate"; detail = "to use " + qty.toFixed(0) + " in " + time.toFixed(0) + " min";
+    }
+    set("f_out", out); set("f_outl", label); set("f_outd", detail);
+    var reserve = rate * 0.75; // 45 min
+    var burned = rate * (time / 60);
+    set("f_res", V((burned + reserve).toFixed(1), "units"));
+  }
+  (function () {
+    var seg = document.getElementById("fuel_solve");
+    Array.prototype.forEach.call(seg.querySelectorAll("button"), function (b) {
+      b.addEventListener("click", function () {
+        Array.prototype.forEach.call(seg.querySelectorAll("button"), function (x) { x.classList.remove("active"); });
+        b.classList.add("active"); fuelSolve = b.getAttribute("data-s"); calcFuel();
+      });
+    });
+  })();
+  ["f_rate","f_time","f_qty"].forEach(function (id) { document.getElementById(id).addEventListener("input", calcFuel); });
+
+  // ===== Conversions =====
+  var CONV = {
+    dist:  { label: "Distance", units: { "NM": 1852, "km": 1000, "mi": 1609.344, "m": 1 }, base: "m" },
+    speed: { label: "Speed", units: { "kt": 0.514444, "mph": 0.44704, "km/h": 0.277778, "m/s": 1 }, base: "m/s" },
+    alt:   { label: "Altitude", units: { "ft": 0.3048, "m": 1, "FL (×100 ft)": 30.48 }, base: "m" },
+    fuel:  { label: "Fuel", units: { "US gal": 1, "litres": 0.264172, "lb Jet-A": 1 / 6.71, "kg Jet-A": 1 / 3.043 }, base: "US gal" }
+  };
+  var convKind = "dist";
+  function buildUnitSelect() {
+    var sel = document.getElementById("c_unit");
+    sel.innerHTML = "";
+    if (convKind === "temp") {
+      ["°C", "°F", "K"].forEach(function (u) { var o = document.createElement("option"); o.value = u; o.textContent = u; sel.appendChild(o); });
+    } else {
+      Object.keys(CONV[convKind].units).forEach(function (u) { var o = document.createElement("option"); o.value = u; o.textContent = u; sel.appendChild(o); });
+    }
+  }
+  function calcConv() {
+    var val = num("c_val");
+    var from = document.getElementById("c_unit").value;
+    var out = document.getElementById("c_out");
+    out.innerHTML = "";
+    var results = [];
+    if (convKind === "temp") {
+      var c; // to celsius
+      if (from === "°C") c = val; else if (from === "°F") c = (val - 32) * 5 / 9; else c = val - 273.15;
+      results = [["°C", c], ["°F", c * 9 / 5 + 32], ["K", c + 273.15]];
+    } else {
+      var u = CONV[convKind].units;
+      var base = val * u[from];
+      Object.keys(u).forEach(function (k) { results.push([k, base / u[k]]); });
+    }
+    results.forEach(function (r) {
+      var cell = document.createElement("div");
+      cell.className = "conv-cell";
+      var v = r[1];
+      var disp = Math.abs(v) >= 1000 ? v.toLocaleString(undefined, { maximumFractionDigits: 1 })
+               : Math.abs(v) >= 100 ? v.toFixed(1) : v.toFixed(2);
+      cell.innerHTML = '<div class="cl">' + r[0] + '</div><div class="cv">' + disp + "</div>";
+      out.appendChild(cell);
+    });
+  }
+  (function () {
+    var seg = document.getElementById("conv_kind");
+    Array.prototype.forEach.call(seg.querySelectorAll("button"), function (b) {
+      b.addEventListener("click", function () {
+        Array.prototype.forEach.call(seg.querySelectorAll("button"), function (x) { x.classList.remove("active"); });
+        b.classList.add("active"); convKind = b.getAttribute("data-k"); buildUnitSelect(); calcConv();
+      });
+    });
+    document.getElementById("c_val").addEventListener("input", calcConv);
+    document.getElementById("c_unit").addEventListener("change", calcConv);
+  })();
+
+  // ---- init ----
+  var savedTab = localStorage.getItem("e6b_tab");
+  if (savedTab) { var tb = tabs.querySelector('[data-tab="' + savedTab + '"]'); if (tb) tb.click(); }
+  calcWind(); calcTas(); calcTsd(); calcFuel(); buildUnitSelect(); calcConv();
+})();
+</script>
+</body>
+</html>
