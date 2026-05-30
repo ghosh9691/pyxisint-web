@@ -422,3 +422,136 @@ select.input {
   border: 1px solid var(--pyxis-border);
   border-radius: 4px;
 }
+
+/* ============ On-page content / SEO prose ============ */
+.tool-content {
+  max-width: 760px;
+  margin: 0 auto;
+  padding: 8px 16px 88px;
+}
+.content-section { margin-top: 44px; }
+.content-section:first-child { margin-top: 0; }
+.content-section h2 {
+  font-family: var(--font-display);
+  font-size: 26px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  color: var(--pyxis-text-primary);
+  margin-bottom: 14px;
+}
+.content-section h3 {
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--pyxis-text-primary);
+  margin: 22px 0 8px;
+}
+.content-section p {
+  font-size: 15.5px;
+  line-height: 1.65;
+  color: var(--pyxis-text-secondary);
+  margin-bottom: 14px;
+  text-wrap: pretty;
+}
+.content-section p strong, .content-section li strong { color: var(--pyxis-text-primary); font-weight: 600; }
+.content-section a { color: var(--pyxis-amber); text-decoration: underline; text-underline-offset: 2px; text-decoration-thickness: 1px; }
+.content-section ul.bullets {
+  display: flex; flex-direction: column; gap: 10px;
+  margin: 0 0 16px;
+}
+.content-section ul.bullets li {
+  display: flex; gap: 12px; align-items: flex-start;
+  font-size: 15px; line-height: 1.6; color: var(--pyxis-text-secondary);
+}
+.content-section ul.bullets li::before {
+  content: '✦'; color: var(--pyxis-amber); font-size: 11px; flex-shrink: 0; margin-top: 5px;
+}
+.content-section code {
+  font-family: var(--font-mono);
+  font-size: 13px;
+  color: var(--pyxis-amber);
+  background: var(--pyxis-surface-raised);
+  padding: 1px 6px;
+  border-radius: 4px;
+}
+
+/* Worked example callout */
+.worked {
+  background: var(--pyxis-surface);
+  border: 1px solid var(--pyxis-border);
+  border-left: 3px solid var(--pyxis-amber);
+  border-radius: 10px;
+  padding: 20px 22px;
+  margin: 8px 0 16px;
+}
+.worked .we-label {
+  font-family: var(--font-mono);
+  font-size: 10px;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--pyxis-amber);
+  margin-bottom: 12px;
+}
+.worked p { font-size: 14.5px; margin-bottom: 10px; }
+.worked .we-line {
+  display: flex; justify-content: space-between; gap: 16px;
+  font-family: var(--font-mono); font-size: 13px;
+  padding: 7px 0; border-bottom: 1px solid var(--pyxis-border);
+  color: var(--pyxis-text-secondary);
+}
+.worked .we-line:last-child { border-bottom: none; }
+.worked .we-line b { color: var(--pyxis-text-primary); font-weight: 600; }
+.worked .we-line .amber { color: var(--pyxis-amber); }
+
+/* FAQ */
+.faq { display: flex; flex-direction: column; gap: 10px; }
+.faq details {
+  background: var(--pyxis-surface);
+  border: 1px solid var(--pyxis-border);
+  border-radius: 10px;
+  overflow: hidden;
+}
+.faq summary {
+  list-style: none;
+  cursor: pointer;
+  padding: 16px 18px;
+  font-size: 15.5px;
+  font-weight: 600;
+  color: var(--pyxis-text-primary);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.faq summary::-webkit-details-marker { display: none; }
+.faq summary::after {
+  content: '+';
+  font-family: var(--font-mono);
+  font-size: 20px;
+  color: var(--pyxis-amber);
+  line-height: 1;
+  transition: transform var(--dur-base) var(--ease-out);
+}
+.faq details[open] summary::after { transform: rotate(45deg); }
+.faq summary:hover { background: var(--pyxis-surface-hover); }
+.faq .faq-a {
+  padding: 0 18px 18px;
+  font-size: 14.5px;
+  line-height: 1.6;
+  color: var(--pyxis-text-secondary);
+}
+
+/* Related tools links */
+.related-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+@media (max-width: 540px) { .related-grid { grid-template-columns: 1fr; } }
+.related-card {
+  display: flex; flex-direction: column; gap: 4px;
+  background: var(--pyxis-surface);
+  border: 1px solid var(--pyxis-border);
+  border-radius: 10px;
+  padding: 16px 18px;
+  transition: all var(--dur-base) var(--ease-out);
+}
+.related-card:hover { background: var(--pyxis-surface-hover); border-color: var(--pyxis-border-strong); }
+.related-card .rc-t { font-size: 15px; font-weight: 600; color: var(--pyxis-text-primary); }
+.related-card .rc-d { font-size: 13px; color: var(--pyxis-text-secondary); line-height: 1.5; }
+.related-card .rc-go { font-family: var(--font-mono); font-size: 11px; color: var(--pyxis-amber); margin-top: 4px; letter-spacing: 0.04em; }

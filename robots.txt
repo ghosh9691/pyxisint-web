@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://pyxisint.com/sitemap.xml
+Sitemap: https://www.pyxisint.com/sitemap.xml
