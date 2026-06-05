@@ -492,6 +492,11 @@ img, svg { display: block; }
   border-radius: 4px;
   text-transform: uppercase;
 }
+.scard .btn {
+  margin-top: 16px;
+  font-size: 12px;
+  display: inline-flex;
+}
 
 /* ========== Engagement models tiles ========== */
 .tiles {
